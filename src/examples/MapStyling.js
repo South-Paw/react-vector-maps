@@ -21,19 +21,19 @@ const StyledMap = styled(MapWrapper)`
       &:hover {
         fill: #98ccd3;
       }
-      
+
       // When a layer is focused.
       &:focus {
         fill: #ebf0f6;
       }
 
       // When a layer is 'checked' (via 'aria-checked').
-      &[aria-checked=true] {
+      &[aria-checked='true'] {
         fill: #8f1537;
       }
 
       // When a layer is 'selected' (via 'aria-current').
-      &[aria-current=true] {
+      &[aria-current='true'] {
         fill: #a275e3;
       }
     }
@@ -44,7 +44,12 @@ import VectorMap from '../index';
 
 const MapStyling = ({ map }) => (
   <Wrapper style={{ flexFlow: 'nowrap column' }}>
-    <p style={{ textAlign: 'center' }}><strong>See comments in the source below for an example or check the readme on Github for more info about what css classes/elements to target.</strong></p>
+    <p style={{ textAlign: 'center' }}>
+      <strong>
+        See comments in the source below for an example or check the readme on Github for more info about what css
+        classes/elements to target.
+      </strong>
+    </p>
     {/* Wrap the map in your element or a div with a css class on it. */}
     <StyledMap style={{ width: '100%', margin: '0 auto', maxWidth: '400px' }}>
       <VectorMap {...map} />
@@ -56,11 +61,13 @@ MapStyling.propTypes = {
   map: PropTypes.shape({
     id: PropTypes.string.isRequired,
     viewBox: PropTypes.string.isRequired,
-    layers: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      d: PropTypes.string.isRequired,
-    })).isRequired,
+    layers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        d: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
   }).isRequired,
-}
+};
 
 export default MapStyling;

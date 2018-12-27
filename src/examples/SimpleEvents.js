@@ -15,7 +15,7 @@ const StyledMap = styled(MapWrapper)`
         fill: #729d39;
       }
 
-      &[aria-checked=true] {
+      &[aria-checked='true'] {
         fill: #c6e377;
       }
     }
@@ -37,7 +37,7 @@ class SimpleEvents extends PureComponent {
 
   /** When the mouse enters a layer. */
   onMouseEnter = e => this.setState({ hovered: e.target.attributes.name.value });
-  
+
   /** When the mouse leaves a layer. */
   onMouseLeave = () => this.setState({ hovered: null });
 
@@ -65,9 +65,15 @@ class SimpleEvents extends PureComponent {
     return (
       <Wrapper>
         <Output>
-          <p><strong>Hovered layer:</strong> {hovered}</p>
-          <p><strong>Focused layer:</strong> {focused}</p>
-          <p><strong>Clicked layer:</strong> {clicked}</p>
+          <p>
+            <strong>Hovered layer:</strong> {hovered}
+          </p>
+          <p>
+            <strong>Focused layer:</strong> {focused}
+          </p>
+          <p>
+            <strong>Clicked layer:</strong> {clicked}
+          </p>
         </Output>
         <StyledMap>
           <VectorMap {...map} layerProps={layerProps} />
@@ -81,11 +87,13 @@ SimpleEvents.propTypes = {
   map: PropTypes.shape({
     id: PropTypes.string.isRequired,
     viewBox: PropTypes.string.isRequired,
-    layers: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      d: PropTypes.string.isRequired,
-    })).isRequired,
+    layers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        d: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
   }).isRequired,
-}
+};
 
 export default SimpleEvents;

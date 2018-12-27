@@ -15,7 +15,7 @@ const StyledMap = styled(MapWrapper)`
         fill: #7045af;
       }
 
-      &[aria-checked=true] {
+      &[aria-checked='true'] {
         fill: #e14594;
       }
     }
@@ -37,7 +37,7 @@ class SelectMultiple extends PureComponent {
   }
 
   onMouseEnter = e => this.setState({ hovered: e.target.attributes.name.value });
-  
+
   onMouseLeave = () => this.setState({ hovered: null });
 
   onFocus = e => this.setState({ focused: e.target.attributes.name.value });
@@ -74,10 +74,18 @@ class SelectMultiple extends PureComponent {
     return (
       <Wrapper>
         <Output>
-          <p><strong>Hovered layer:</strong> {hovered}</p>
-          <p><strong>Focused layer:</strong> {focused}</p>
-          <p><strong>Clicked layer:</strong> {clicked}</p>
-          <p><strong>Selected layers:</strong></p>
+          <p>
+            <strong>Hovered layer:</strong> {hovered}
+          </p>
+          <p>
+            <strong>Focused layer:</strong> {focused}
+          </p>
+          <p>
+            <strong>Clicked layer:</strong> {clicked}
+          </p>
+          <p>
+            <strong>Selected layers:</strong>
+          </p>
           <pre>{JSON.stringify(selected, null, 2)}</pre>
         </Output>
         <StyledMap>
@@ -92,11 +100,13 @@ SelectMultiple.propTypes = {
   map: PropTypes.shape({
     id: PropTypes.string.isRequired,
     viewBox: PropTypes.string.isRequired,
-    layers: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      d: PropTypes.string.isRequired,
-    })).isRequired,
+    layers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        d: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
   }).isRequired,
-}
+};
 
 export default SelectMultiple;

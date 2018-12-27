@@ -14,7 +14,7 @@ const StyledMap = styled(MapWrapper)`
         fill: #90007f;
       }
 
-      &[aria-current=true] {
+      &[aria-current='true'] {
         fill: #d52484;
       }
     }
@@ -44,12 +44,13 @@ class TooltipLayers extends PureComponent {
 
   onMouseOver = e => this.setState({ current: e.target.attributes.name.value });
 
-  onMouseMove = e => this.setState({
-    isTooltipVisible: true,
-    tooltipY: e.clientY + 10,
-    tooltipX: e.clientX + 10,
-  });
-  
+  onMouseMove = e =>
+    this.setState({
+      isTooltipVisible: true,
+      tooltipY: e.clientY + 10,
+      tooltipX: e.clientX + 10,
+    });
+
   onMouseOut = () => this.setState({ current: null, isTooltipVisible: false });
 
   render() {
@@ -71,11 +72,11 @@ class TooltipLayers extends PureComponent {
     return (
       <Wrapper>
         <StyledMap style={{ margin: '0 auto', maxWidth: '400px' }}>
-          <p style={{ textAlign: 'center' }}><strong>Mouse over a region to see the tooltip.</strong></p>
+          <p style={{ textAlign: 'center' }}>
+            <strong>Mouse over a region to see the tooltip.</strong>
+          </p>
           <VectorMap {...map} layerProps={layerProps} />
-          <Tooltip style={tooltipStyle}>
-            {current}
-          </Tooltip>
+          <Tooltip style={tooltipStyle}>{current}</Tooltip>
         </StyledMap>
       </Wrapper>
     );
@@ -86,11 +87,13 @@ TooltipLayers.propTypes = {
   map: PropTypes.shape({
     id: PropTypes.string.isRequired,
     viewBox: PropTypes.string.isRequired,
-    layers: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      d: PropTypes.string.isRequired,
-    })).isRequired,
+    layers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        d: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
   }).isRequired,
-}
+};
 
 export default TooltipLayers;

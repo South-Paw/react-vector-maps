@@ -25,14 +25,16 @@ VectorMap.propTypes = {
   /** View box for the visible map. */
   viewBox: PropTypes.string.isRequired,
   /** Layers or regions of the visible map. */
-  layers: PropTypes.arrayOf(PropTypes.shape({
-    /** Used to key the path element. */
-    id: PropTypes.string.isRequired,
-    /** Name for this layer or region. */
-    name: PropTypes.string,
-    /** Svg path for this layer or region. */
-    d: PropTypes.string.isRequired,
-  })).isRequired,
+  layers: PropTypes.arrayOf(
+    PropTypes.shape({
+      /** Used to key the path element. */
+      id: PropTypes.string.isRequired,
+      /** Name for this layer or region. */
+      name: PropTypes.string,
+      /** Svg path for this layer or region. */
+      d: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   /** Tab index for each layer, set to `-1` to disable focus. */
   tabIndex: PropTypes.string,
   /** Props to pass onto each layer. */

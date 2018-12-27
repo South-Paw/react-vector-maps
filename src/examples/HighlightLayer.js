@@ -14,7 +14,7 @@ const StyledMap = styled(MapWrapper)`
         fill: #90007f;
       }
 
-      &[aria-current=true] {
+      &[aria-current='true'] {
         fill: #d52484;
       }
     }
@@ -43,11 +43,19 @@ class HighlightLayer extends PureComponent {
     return (
       <Wrapper>
         <Output>
-          <p><strong>Hover on a list item to highlight the layer:</strong></p>
+          <p>
+            <strong>Hover on a list item to highlight the layer:</strong>
+          </p>
           <ul>
-            <li onMouseEnter={() => this.setCurrent('nz-auk')} onMouseLeave={() => this.clearCurrent()}><code>Auckland</code></li>
-            <li onMouseEnter={() => this.setCurrent('nz-wgn')} onMouseLeave={() => this.clearCurrent()}><code>Wellington</code></li>
-            <li onMouseEnter={() => this.setCurrent('nz-can')} onMouseLeave={() => this.clearCurrent()}><code>Canterbury</code></li>
+            <li onMouseEnter={() => this.setCurrent('nz-auk')} onMouseLeave={() => this.clearCurrent()}>
+              <code>Auckland</code>
+            </li>
+            <li onMouseEnter={() => this.setCurrent('nz-wgn')} onMouseLeave={() => this.clearCurrent()}>
+              <code>Wellington</code>
+            </li>
+            <li onMouseEnter={() => this.setCurrent('nz-can')} onMouseLeave={() => this.clearCurrent()}>
+              <code>Canterbury</code>
+            </li>
           </ul>
         </Output>
         <StyledMap>
@@ -62,11 +70,13 @@ HighlightLayer.propTypes = {
   map: PropTypes.shape({
     id: PropTypes.string.isRequired,
     viewBox: PropTypes.string.isRequired,
-    layers: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      d: PropTypes.string.isRequired,
-    })).isRequired,
+    layers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        d: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
   }).isRequired,
-}
+};
 
 export default HighlightLayer;
