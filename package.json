@@ -1,0 +1,23 @@
+{
+  "name": "@south-paw/react-vector-maps",
+  "version": "0.0.1",
+  "description": "Interactive vector maps of the world and 100+ countries for React.",
+  "keywords": [],
+  "homepage": "https://github.com/South-Paw/react-vector-maps",
+  "bugs": "https://github.com/South-Paw/react-vector-maps/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Alex Gabites",
+    "email": "hello@southpaw.co.nz",
+    "url": "http://southpaw.co.nz/"
+  },
+  "files": [],
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/South-Paw/react-vector-maps.git"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}
