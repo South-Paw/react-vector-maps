@@ -1,0 +1,7 @@
+node_modules
+coverage
+public
+
+src/maps/index.js
+src/maps/json/*
+src/maps/svg/*
