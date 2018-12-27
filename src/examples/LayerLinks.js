@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Wrapper, MapWrapper } from './styled';
 
 const StyledMap = styled(MapWrapper)`
-  svg {   
+  svg {
     path {
       fill: #1a3263;
       cursor: pointer;
@@ -13,7 +13,7 @@ const StyledMap = styled(MapWrapper)`
       &:hover {
         fill: #f5564e;
       }
-      
+
       &:focus {
         fill: #fab95b;
       }
@@ -25,7 +25,7 @@ import VectorMap from '../index';
 
 class LayerLinks extends PureComponent {
   onClick = e => {
-    const name = e.target.attributes.name.value
+    const name = e.target.attributes.name.value;
     window.open(`https://www.google.com/search?q=${name}%20nz`);
   };
 
@@ -39,7 +39,13 @@ class LayerLinks extends PureComponent {
     return (
       <Wrapper>
         <StyledMap style={{ margin: '0 auto', maxWidth: '400px' }}>
-          <p style={{ textAlign: 'center' }}><strong>Click on a region to Google it.<br />Links will open in a new tab.</strong></p>
+          <p style={{ textAlign: 'center' }}>
+            <strong>
+              Click on a region to Google it.
+              <br />
+              Links will open in a new tab.
+            </strong>
+          </p>
           <VectorMap {...map} layerProps={layerProps} />
         </StyledMap>
       </Wrapper>
@@ -51,11 +57,13 @@ LayerLinks.propTypes = {
   map: PropTypes.shape({
     id: PropTypes.string.isRequired,
     viewBox: PropTypes.string.isRequired,
-    layers: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      d: PropTypes.string.isRequired,
-    })).isRequired,
+    layers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        d: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
   }).isRequired,
-}
+};
 
 export default LayerLinks;
