@@ -8,7 +8,7 @@
 
 **This package is a work-in-progress and may contain bugs!**
 
-If you manage to find any, please report them [here](https://github.com/South-Paw/discord-musicbot/issues) so they can be squashed.
+If you manage to find any, please report them [here](https://github.com/South-Paw/react-vector-maps/issues) so they can be squashed.
 
 ## Usage
 
