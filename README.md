@@ -1,6 +1,6 @@
 # react-vector-maps
 
-🗺️ Interactive vector maps of the world and 100+ countries for React.
+🗺️ A React component that provides interactive vector maps of the world and 100+ countries.
 
 ---
 
@@ -10,9 +10,24 @@
 
 If you manage to find any, please report them [here](https://github.com/South-Paw/react-vector-maps/issues) so they can be squashed.
 
-## Usage
+## Basic Usage
 
-todo
+**⚠️ Package is not published yet!**
+
+```
+import React from 'react';
+import VectorMap, { world } from '@south-paw/react-vector-map';
+
+const MyMap = () => (
+  <VectorMap {...world} />
+);
+
+export default MyMap;
+```
+
+## Development
+
+At the moment it's pretty simple, just do `yarn` then `yarn storybook` and visit `localhost:9000` in your browser if it doesn't pop up.
 
 ## License
 
