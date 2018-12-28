@@ -6,6 +6,7 @@ yarn-error.log
 # generated folders
 coverage
 public
+dist
 
 # OS generated files
 .DS_Store

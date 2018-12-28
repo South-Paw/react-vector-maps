@@ -18,23 +18,36 @@
     "url": "https://github.com/South-Paw/react-vector-maps.git"
   },
   "scripts": {
-    "convert": "node src/maps/convert-svgs.js",
+    "build": "rimraf dist && babel src -d dist",
+    "convert": "node maps/convert-svgs.js",
     "lint": "eslint .",
     "storybook": "start-storybook -p 9000 -c .storybook",
-    "storybook:build": "build-storybook -c .storybook -o public/storybook"
+    "storybook:build": "build-storybook -c .storybook -o public/storybook",
+    "test": "jest"
   },
   "dependencies": {
     "prop-types": "^15.6.2",
-    "react": "^16.7.0"
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
     "@storybook/addon-options": "^4.1.4",
     "@storybook/react": "^4.1.4",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-inline-json": "^1.2.2",
     "coveralls": "^3.0.2",
     "eslint": "^5.11.1",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "jest": "^23.6.0",
     "polished": "^2.3.1",
     "prettier": "^1.15.3",
     "rimraf": "^2.6.2",

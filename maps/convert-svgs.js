@@ -2,11 +2,33 @@ const fs = require('fs');
 const rimraf = require('rimraf');
 const svgson = require('svgson');
 
-const { asyncForEach, capitalize, stringify } = require('../utils');
+const asyncForEach = async (a, cb) => {
+  for (let i = 0; i < a.length; i += 1) {
+    await cb(a[i], i, a);
+  }
+};
+
+const capitalize = s =>
+  s
+    .toLowerCase()
+    .split(' ')
+    .map(word => word[0].toUpperCase() + word.slice(1))
+    .join(' ');
+
+// Human readable json stringify where simple arrays use only one line.
+// https://gist.github.com/nrkn/c7a89bb7039182314415
+const stringify = object => {
+  const isPrimitive = obj => obj === null || ['string', 'number', 'boolean'].includes(typeof obj);
+  const isArrayOfPrimitive = obj => Array.isArray(obj) && obj.every(isPrimitive);
+  const format = arr => `^^^[ ${arr.map(val => JSON.stringify(val)).join(', ')} ]`;
+  const replacer = (key, value) => (isArrayOfPrimitive(value) ? format(value) : value);
+  const expand = str => str.replace(/(?:"\^\^\^)(\[ .* \])(?:")/g, (match, a) => a.replace(/\\"/g, '"'));
+  return expand(JSON.stringify(object, replacer, 2));
+};
 
 const SVG_MAP_FILES = `${__dirname}\\svg`;
 const JSON_MAP_FILES = `${__dirname}\\json`;
-const EXPORTS_FILE = `${__dirname}\\index.js`;
+const EXPORTS_FILE = `${__dirname}\\..\\src\\maps.js`;
 
 class ConvertSVGs {
   async cleanAndCreateFolder(path) {
@@ -67,7 +89,7 @@ class ConvertSVGs {
           .join('');
         const safeName = temp.charAt(0).toLowerCase() + temp.substr(1);
 
-        imports.push(`import ${safeName} from './json/${name}.json';`);
+        imports.push(`import ${safeName} from '../maps/json/${name}.json';`);
         exports.push(`  ${safeName},`);
       });
     });
@@ -82,6 +104,7 @@ class ConvertSVGs {
         'export {',
         ...exports,
         '};',
+        '',
       ].join('\n'),
     );
   }

@@ -1,0 +1,5 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": ["@babel/plugin-proposal-class-properties", "inline-json"],
+  "ignore": ["**/*.test.js", "./src/examples", "./src/maps/convert-svgs.js"]
+}

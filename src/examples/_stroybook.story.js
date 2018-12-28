@@ -5,8 +5,6 @@ import { Example } from '../../.storybook/components';
 
 import { description } from '../../package.json';
 
-import { capitalize } from '../utils';
-
 import VectorMap from '../index';
 import { world, usa, newZealand } from '../maps';
 
@@ -28,8 +26,15 @@ import tooltipLayersSource from '!raw-loader!./TooltipLayers';
 import MapStyling from './MapStyling';
 import mapStylingSource from '!raw-loader!./MapStyling';
 
+const capitalize = s =>
+  s
+    .toLowerCase()
+    .split(' ')
+    .map(word => word[0].toUpperCase() + word.slice(1))
+    .join(' ');
+
 const allMaps = require
-  .context('../maps/json', true, /.json$/)
+  .context('../../maps/json', true, /.json$/)
   .keys()
   .map(filename => {
     const cleanFileName = filename.replace(/\.\//, '');
@@ -47,9 +52,9 @@ const allMaps = require
 
     return {
       filename: cleanFileName,
-      path: `../maps/json/${cleanFileName}`,
+      path: `../../maps/json/${cleanFileName}`,
       import: safeName,
-      json: require(`../maps/json/${cleanFileName}`),
+      json: require(`../../maps/json/${cleanFileName}`),
     };
   });
 
