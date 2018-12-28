@@ -105,7 +105,7 @@ documentationStories.add('Avaliable Maps', () => (
       </p>
       <p>
         <code>
-          import newZealand from '@south-paw/react-vector-maps/maps/<strong>new-zealand.json</strong>';
+          import newZealand from '@south-paw/react-vector-maps/maps/json/<strong>new-zealand.json</strong>';
         </code>
       </p>
     </div>
