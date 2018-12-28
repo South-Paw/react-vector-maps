@@ -3,6 +3,7 @@
 🗺️ A React component that provides interactive vector maps of the world and 100+ countries.
 
 [![Live Demo](https://img.shields.io/badge/netlify-live_demo-1e9498.svg)](https://react-vector-maps.netlify.com/)
+[![npm](https://img.shields.io/npm/v/@south-paw/react-vector-maps.svg)](https://www.npmjs.com/package/@south-paw/react-vector-maps)
 [![CI Status](https://img.shields.io/travis/South-Paw/react-vector-maps.svg)](https://travis-ci.org/South-Paw/react-vector-maps)
 [![Coveralls Status](https://img.shields.io/coveralls/github/South-Paw/react-vector-maps.svg)](https://coveralls.io/github/South-Paw/react-vector-maps)
 [![Dependencies](https://david-dm.org/South-Paw/react-vector-maps/status.svg)](https://david-dm.org/South-Paw/react-vector-maps)

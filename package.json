@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "rimraf dist && babel src -d dist",
-    "convert": "node maps/convert-svgs.js",
+    "convert": "node maps/run.js",
     "lint": "eslint .",
     "storybook": "start-storybook -p 9000 -c .storybook",
     "storybook:build": "build-storybook -c .storybook -o public/storybook",

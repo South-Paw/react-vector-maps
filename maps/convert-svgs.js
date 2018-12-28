@@ -110,5 +110,9 @@ class ConvertSVGs {
   }
 }
 
-const convertSVGs = new ConvertSVGs();
-convertSVGs.run();
+module.exports = {
+  ConvertSVGs,
+  asyncForEach,
+  capitalize,
+  stringify,
+};

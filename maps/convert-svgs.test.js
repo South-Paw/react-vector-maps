@@ -1,5 +1,5 @@
 const { name } = require('../package.json');
-const { asyncForEach, capitalize, stringify } = require('./utils');
+const { asyncForEach, capitalize, stringify } = require('./convert-svgs');
 
 describe(name, () => {
   describe('convert-svgs', () => {
