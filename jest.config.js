@@ -2,8 +2,11 @@ module.exports = {
   collectCoverageFrom: ['**/*.js'],
   coveragePathIgnorePatterns: [
     '/node_modules/',
+    '<rootDir>/.storybook/',
     '<rootDir>/coverage/',
-    '<rootDir>/src/maps/index.js',
+    '<rootDir>/dist/',
+    '<rootDir>/maps/run.js',
+    '<rootDir>/src/maps.js',
     '.story.js',
     'jest.config.js',
   ],
