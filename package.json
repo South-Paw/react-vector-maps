@@ -18,7 +18,7 @@
     "url": "https://github.com/South-Paw/react-vector-maps.git"
   },
   "scripts": {
-    "build": "rimraf dist && babel src -d dist",
+    "build": "rimraf dist && babel src -d dist --ignore \"**/*.test.js\",\"./src/examples\",\"./maps/**\"",
     "convert": "node maps/run.js",
     "lint": "eslint .",
     "storybook": "start-storybook -p 9000 -c .storybook",

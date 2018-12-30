@@ -6,6 +6,7 @@ module.exports = {
     '<rootDir>/coverage/',
     '<rootDir>/dist/',
     '<rootDir>/maps/run.js',
+    '<rootDir>/src/examples/',
     '<rootDir>/src/maps.js',
     '.story.js',
     'jest.config.js',
