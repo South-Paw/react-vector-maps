@@ -140,7 +140,70 @@ documentationStories.add('Avaliable Maps', () => (
   </>
 ));
 
-documentationStories.add('Using your own SVG for a map', () => <div>todo</div>);
+documentationStories.add('Using your own SVG for a map', () => (
+  <>
+    <h1>Using your own SVG for a map</h1>
+    <p>
+      You can convert any SVG file into a usable JSON format for this package with the same converter util that is used
+      to produce the included maps.
+    </p>
+    <div style={{ margin: '5rem 0' }}>
+      <h2>Sample SVG</h2>
+      <pre>{`<svg width="100" height="100">
+  <path id="region-1" title="Awesome Region" d="..." />
+  <path id="region-2" title="Some Other Area" d="..." />
+  <path id="region-3" title="Another Location" d="..." />
+</svg>`}</pre>
+      <ul>
+        <li>
+          <code>width</code> and <code>height</code> are required attributes on the <code>&lt;svg /&gt;</code> element.
+        </li>
+        <li>
+          The SVG is assumed to have a viewBox origin of <code>0 0</code> and uses the given <code>width</code> and{' '}
+          <code>height</code> as the viewBox maximum values.
+        </li>
+        <li>
+          Only <code>&lt;path /&gt;</code> elements will be converted to JSON.
+        </li>
+        <li>
+          <code>id</code> and <code>d</code> attributes are required on all path elements and the <code>id</code> must
+          be uniquie for each path.
+        </li>
+        <li>
+          A <code>title</code> attribute on a path element will be used as the layers <code>name</code> field. If no
+          title is present, the <code>id</code> will be capitalized and used.
+        </li>
+      </ul>
+    </div>
+    <div style={{ margin: '5rem 0' }}>
+      <h2>Sample Node script</h2>
+      <pre>{`const { ConvertSVGs } = require('${name}/maps/convert-svgs');
+
+const convertSVGs = new ConvertSVGs({
+  
+  // Required: Path to folder containing the SVGs to convert to JSON.
+  inputSvgsPath: \`\${__dirname}\\\\my\\\\svg\\\\inputs\`,
+
+  // Required: Path to folder to output JSON files.
+  // !! WARNING !!: This folder will be deleted and recreated by the script.
+  outputJsonPath: \`\${__dirname}\\\\my\\\\json\\\\outputs\`,
+
+  // Optional: File path to generated exports file - the package uses this but you shouldn't need to.
+  generatedExportsFilePath: \`\${__dirname}\\\\my\\\\exports\\\\file.js\`,
+
+});
+
+convertSVGs.run();`}</pre>
+      <p>
+        After running this you'll have a folder at the path you specificed containing the SVG file converted to useable
+        json for the component.
+      </p>
+      <p>
+        Lastly to use your file, import or load that JSON file into your React component and spread it onto the VectorMap component. 🎉
+      </p>
+    </div>
+  </>
+));
 
 const liveExampleStories = storiesOf('Live Examples', module);
 
