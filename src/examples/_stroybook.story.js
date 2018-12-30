@@ -3,10 +3,9 @@ import { storiesOf } from '@storybook/react';
 
 import { Example } from '../../.storybook/components';
 
-import { description } from '../../package.json';
+import { name, description } from '../../package.json';
 
-import VectorMap from '../index';
-import { world, usa, newZealand } from '../maps';
+import VectorMap, { world, usa, newZealand } from '../index';
 
 import SimpleEvents from './SimpleEvents';
 import simpleEventsSource from '!raw-loader!./SimpleEvents';
@@ -58,6 +57,10 @@ const allMaps = require
     };
   });
 
+const basicExample = importName => `import VectorMap, { ${importName} } from '${name}';
+
+export const MyMap = () => <VectorMap {...${importName}} />`;
+
 const documentationStories = storiesOf('Documentation', module);
 
 documentationStories.add('Readme', () => (
@@ -70,46 +73,49 @@ documentationStories.add('Readme', () => (
           Check out the Github readme for the getting started guide 🎉
         </a>
       </p>
-      <hr />
-      <div style={{ maxWidth: '300px', margin: '0 auto' }}>
-        <h3>The World</h3>
-        <VectorMap {...world} />
-      </div>
-      <hr />
-      <div style={{ maxWidth: '300px', margin: '0 auto' }}>
-        <h3>New Zealand</h3>
-        <VectorMap {...newZealand} />
-      </div>
-      <hr />
-      <div style={{ maxWidth: '300px', margin: '0 auto' }}>
-        <h3>USA</h3>
-        <VectorMap {...usa} />
-      </div>
     </div>
+    <div style={{ maxWidth: '500px', margin: '5rem auto' }}>
+      <Example title="The World" code={basicExample('world')} isCodeOpen={false}>
+        <VectorMap {...world} />
+      </Example>
+    </div>
+    <div style={{ maxWidth: '500px', margin: '5rem auto' }}>
+      <Example title="New Zealand" code={basicExample('newZealand')} isCodeOpen={false}>
+        <VectorMap {...newZealand} />
+      </Example>
+    </div>
+    <div style={{ maxWidth: '500px', margin: '5rem auto' }}>
+      <Example title="USA" code={basicExample('usa')} isCodeOpen={false}>
+        <VectorMap {...usa} />
+      </Example>
+    </div>
+    <h4 style={{ textAlign: 'center' }}>and a lot more other maps too, check out the 'Avaliable Maps' story.</h4>
   </>
 ));
 
 documentationStories.add('Avaliable Maps', () => (
   <>
-    <div style={{ textAlign: 'center' }}>
-      <p>
-        The <strong>Import Key</strong> is the name to use when importing a map, for example:
-      </p>
-      <p>
-        <code>
-          import {'{'} <strong>newZealand</strong> {'}'} from '@south-paw/react-vector-maps';
-        </code>
-      </p>
-      <p>
-        Alternatively, you can also import the json file directly with the <strong>Filename</strong> as follows:
-      </p>
-      <p>
-        <code>
-          import newZealand from '@south-paw/react-vector-maps/maps/json/<strong>new-zealand.json</strong>';
-        </code>
-      </p>
-    </div>
-    <table style={{ width: '100%' }}>
+    <h1>Avaliable Maps</h1>
+    <p>
+      The <strong>Import Key</strong> is the name to use when importing a map, for example:
+      <br />
+      <code>
+        import {'{'} <strong>newZealand</strong> {'}'} from '{name}';
+      </code>
+    </p>
+    <p>
+      Alternatively, you can also import the json file directly with the <strong>Filename</strong> as follows:
+      <br />
+      <code>
+        import newZealand from '{name}/maps/json/<strong>new-zealand.json</strong>';
+      </code>
+    </p>
+    <p>
+      Below you'll find a list of all maps exported by the package.
+      <br />
+      You can also create and use your own maps; see the 'Using your own SVG for a map' story.
+    </p>
+    <table style={{ width: '100%', margin: '5rem 0' }}>
       <thead>
         <tr>
           <th>Map Name</th>

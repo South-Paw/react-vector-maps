@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
+const BORDER_STYLE = `0.2rem solid ${rgba('#000', 0.15)}`;
+const STROKE_COLOR = '#fff';
+
 export const Wrapper = styled.div`
   display: flex;
   flex-flow: nowrap row;
@@ -13,13 +16,13 @@ export const Wrapper = styled.div`
 export const Output = styled.div`
   padding-right: 1rem;
   flex: 1 1 0;
-  border-right: 0.2rem solid ${rgba('#000', 0.15)};
+  border-right: ${BORDER_STYLE};
 
   @media (max-width: 600px) {
     padding-right: 0;
     padding-bottom: 1rem;
     border-right: none;
-    border-bottom: 0.2rem solid ${rgba('#000', 0.15)};
+    border-bottom: 0.2rem solid ${BORDER_STYLE};
   }
 `;
 
@@ -33,7 +36,7 @@ export const MapWrapper = styled.div`
   }
 
   svg {
-    stroke: #fff;
+    stroke: ${STROKE_COLOR};
     stroke-width: 1;
     stroke-linecap: round;
     stroke-linejoin: round;
