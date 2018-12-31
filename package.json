@@ -1,6 +1,6 @@
 {
   "name": "@south-paw/react-vector-maps",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A React component for interactive vector maps of the world and 100+ countries.",
   "keywords": [],
   "homepage": "https://github.com/South-Paw/react-vector-maps",
@@ -16,7 +16,7 @@
     "maps/json",
     "maps/convert-svgs.js"
   ],
-  "main": "",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/South-Paw/react-vector-maps.git"
