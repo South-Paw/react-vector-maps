@@ -14,12 +14,11 @@
 ## Features
 
 * Simple and easy to implement React component for rendering interactive vector maps.
+* Bring your own vector map, see how to [use your own SVG for a map](https://react-vector-maps.netlify.com/?selectedKind=%F0%9F%93%96%20Documentation&selectedStory=Using%20your%20own%20SVG%20for%20a%20map).
 * Quick and easy to style maps however you like.
 * 100+ vector maps included out of the box, free from [MapSVG](http://mapsvg.com/maps/).
 
 ## Basic Usage
-
-**⚠️ Package is not published yet!**
 
 ```
 import React from 'react';
@@ -31,6 +30,8 @@ const MyMap = () => (
 
 export default MyMap;
 ```
+
+See the [Live Examples](https://react-vector-maps.netlify.com/?selectedKind=%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB%20Live%20Examples&selectedStory=Simple%20events&full=0&addons=0&stories=1&panelRight=0) section of the documentation for ideas on how to extend the maps.
 
 ## Issues and Bugs
 
