@@ -3,6 +3,11 @@ const { asyncForEach, capitalize, stringify } = require('./convert-svgs');
 
 describe(name, () => {
   describe('convert-svgs', () => {
+    // TODO
+    describe('asyncForEach', () => {
+      xtest('that given a parameter and an async function, it will loop through them as a forEach would.', () => {});
+    });
+
     describe('capitalize', () => {
       test('that given a word, the word is capitalized', () => {
         const given = 'apples';
@@ -43,6 +48,19 @@ describe(name, () => {
 ]`;
 
         expect(stringify(object)).toBe(expected);
+      });
+    });
+
+    // TODO
+    describe('ConvertSVGs', () => {
+      test('constructor', () => {});
+
+      test('cleanAndCreateFolder', () => {});
+
+      test('cleanAndCreateFile', () => {});
+
+      describe('run', () => {
+        test('todo', () => {});
       });
     });
   });
