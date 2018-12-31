@@ -5,6 +5,7 @@ yarn-error.log
 
 # generated folders
 coverage
+dist
 public
 
 # OS generated files

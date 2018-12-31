@@ -1,18 +1,21 @@
 # react-vector-maps
 
-🗺️ A React component that provides interactive vector maps of the world and 100+ countries.
+🗺️ A React component for interactive vector maps of the world and 100+ countries.
 
+[![Live Demo](https://img.shields.io/badge/netlify-live_demo-1e9498.svg)](https://react-vector-maps.netlify.com/)
+[![npm](https://img.shields.io/npm/v/@south-paw/react-vector-maps.svg)](https://www.npmjs.com/package/@south-paw/react-vector-maps)
 [![CI Status](https://img.shields.io/travis/South-Paw/react-vector-maps.svg)](https://travis-ci.org/South-Paw/react-vector-maps)
+[![Coveralls Status](https://img.shields.io/coveralls/github/South-Paw/react-vector-maps.svg)](https://coveralls.io/github/South-Paw/react-vector-maps)
 [![Dependencies](https://david-dm.org/South-Paw/react-vector-maps/status.svg)](https://david-dm.org/South-Paw/react-vector-maps)
 [![Dev Dependencies](https://david-dm.org/South-Paw/react-vector-maps/dev-status.svg)](https://david-dm.org/South-Paw/react-vector-maps?type=dev)
 
 ---
 
-## 🐉 HERE BE DRAGONS
+## Features
 
-**This package is a work-in-progress and may contain bugs!**
-
-If you manage to find any, please report them [here](https://github.com/South-Paw/react-vector-maps/issues) so they can be squashed.
+* Simple and easy to implement React component for rendering interactive vector maps.
+* Quick and easy to style maps however you like.
+* 100+ vector maps included out of the box, free from [MapSVG](http://mapsvg.com/maps/).
 
 ## Basic Usage
 
@@ -29,9 +32,33 @@ const MyMap = () => (
 export default MyMap;
 ```
 
-## Development
+## Issues and Bugs
 
-At the moment it's pretty simple, just do `yarn` then `yarn storybook` and visit `localhost:9000` in your browser if it doesn't pop up.
+If you manage to find any, please report them [here](https://github.com/South-Paw/react-vector-maps/issues) so they can be squashed.
+
+## Development and Contributing
+
+Grab the repo and then install dependencies with `yarn`.
+
+```bash
+# run linter
+yarn lint
+
+# run tests
+yarn test
+
+# run storybook for development
+yarn storybook
+
+# convert svg files in `maps/svg/**` to json files and generate `src/maps.js`
+yarn convert
+
+# build dist version of package
+yarn build
+
+# build storybook for docs
+yarn storybook:build
+```
 
 ## License
 

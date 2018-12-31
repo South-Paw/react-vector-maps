@@ -1,7 +1,8 @@
 node_modules
 coverage
+dist
 public
 
-src/maps/index.js
-src/maps/json/*
-src/maps/svg/*
+maps/json/*
+maps/svg/*
+maps/run.js
