@@ -15,7 +15,7 @@
 
 * Simple and easy to implement React component for rendering interactive vector maps.
 * Quick and easy to style maps however you like.
-* 100+ vector maps out of the box.
+* 100+ vector maps included out of the box, free from [MapSVG](http://mapsvg.com/maps/).
 
 ## Basic Usage
 
