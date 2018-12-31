@@ -25,6 +25,7 @@
     "build": "rimraf dist && babel src -d dist --ignore \"**/*.test.js\",\"./src/examples\",\"./maps/**\"",
     "convert": "node maps/run.js",
     "lint": "eslint .",
+    "prepublishOnly": "yarn lint && yarn test && yarn build",
     "storybook": "start-storybook -p 9000 -c .storybook",
     "storybook:build": "build-storybook -c .storybook -o public/storybook",
     "test": "jest"
