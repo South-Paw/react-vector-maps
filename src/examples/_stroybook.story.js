@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 
 import { Example } from '../../.storybook/components';
 
@@ -61,7 +62,10 @@ const basicExample = importName => `import VectorMap, { ${importName} } from '${
 
 export const MyMap = () => <VectorMap {...${importName}} />`;
 
-const documentationStories = storiesOf('Documentation', module);
+const documentationStories = storiesOf('📖 Documentation', module);
+
+documentationStories.addDecorator(withInfo);
+documentationStories.addParameters({ info: { disable: true } });
 
 documentationStories.add('Readme', () => (
   <>
@@ -92,6 +96,10 @@ documentationStories.add('Readme', () => (
     <h4 style={{ textAlign: 'center' }}>and a lot more other maps too, check out the 'Avaliable Maps' story.</h4>
   </>
 ));
+
+documentationStories.add('VectorMap Component', () => <VectorMap {...newZealand} />, {
+  info: { disable: false, inline: true },
+});
 
 documentationStories.add('Avaliable Maps', () => (
   <>
@@ -199,13 +207,14 @@ convertSVGs.run();`}</pre>
         json for the component.
       </p>
       <p>
-        Lastly to use your file, import or load that JSON file into your React component and spread it onto the VectorMap component. 🎉
+        Lastly to use your file, import or load that JSON file into your React component and spread it onto the
+        VectorMap component. 🎉
       </p>
     </div>
   </>
 ));
 
-const liveExampleStories = storiesOf('Live Examples', module);
+const liveExampleStories = storiesOf('👨‍💻 Live Examples', module);
 
 liveExampleStories.add('Simple events', () => (
   <Example title="Simple example" code={simpleEventsSource}>
@@ -243,7 +252,7 @@ liveExampleStories.add('Styling maps', () => (
   </Example>
 ));
 
-const mapStories = storiesOf('Maps', module);
+const mapStories = storiesOf('🗺️ Included Maps', module);
 
 allMaps.forEach(map => {
   mapStories.add(map.json.name, () => <VectorMap {...map.json} />);

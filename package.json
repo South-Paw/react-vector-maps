@@ -36,6 +36,7 @@
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-info": "^4.1.4",
     "@storybook/addon-options": "^4.1.4",
     "@storybook/react": "^4.1.4",
     "babel-core": "7.0.0-bridge.0",

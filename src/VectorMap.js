@@ -20,11 +20,11 @@ const VectorMap = ({ layers, tabIndex, layerProps, checkedLayers, currentLayers,
 VectorMap.propTypes = {
   /** Used to key the svg element. */
   id: PropTypes.string.isRequired,
-  /** Name for the visible map. */
+  /** Name of the map. */
   name: PropTypes.string,
-  /** View box for the visible map. */
+  /** View box for the map. */
   viewBox: PropTypes.string.isRequired,
-  /** Layers or regions of the visible map. */
+  /** Layers or regions for the map. */
   layers: PropTypes.arrayOf(
     PropTypes.shape({
       /** Used to key the path element. */
