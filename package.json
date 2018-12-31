@@ -16,7 +16,7 @@
     "maps/json",
     "maps/convert-svgs.js"
   ],
-  "main": "",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/South-Paw/react-vector-maps.git"
