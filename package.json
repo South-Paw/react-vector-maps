@@ -11,7 +11,11 @@
     "email": "hello@southpaw.co.nz",
     "url": "http://southpaw.co.nz/"
   },
-  "files": [],
+  "files": [
+    "dist",
+    "maps/json",
+    "maps/convert-svgs.js"
+  ],
   "main": "",
   "repository": {
     "type": "git",
