@@ -1,8 +1,18 @@
 {
   "name": "@south-paw/react-vector-maps",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React component for interactive vector maps of the world and 100+ countries.",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "component",
+    "map",
+    "maps",
+    "svg",
+    "interactive",
+    "world",
+    "country",
+    "countries"
+  ],
   "homepage": "https://github.com/South-Paw/react-vector-maps",
   "bugs": "https://github.com/South-Paw/react-vector-maps/issues",
   "license": "MIT",
