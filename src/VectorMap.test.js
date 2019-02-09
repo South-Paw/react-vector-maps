@@ -1,5 +1,7 @@
 const { name } = require('../package.json');
-import VectorMap, { world } from './index';
+
+import VectorMap from './index';
+import world from '../maps/json/world.json';
 
 describe(name, () => {
   it('todo', () => {

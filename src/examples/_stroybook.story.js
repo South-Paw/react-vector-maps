@@ -6,7 +6,11 @@ import { Example } from '../../.storybook/components';
 
 import { name, description } from '../../package.json';
 
-import VectorMap, { world, usa, newZealand } from '../index';
+import VectorMap from '../index';
+
+import world from '../../maps/json/world.json';
+import usa from '../../maps/json/usa.json';
+import newZealand from '../../maps/json/new-zealand.json';
 
 import SimpleEvents from './SimpleEvents';
 import simpleEventsSource from '!raw-loader!./SimpleEvents';
@@ -26,41 +30,23 @@ import tooltipLayersSource from '!raw-loader!./TooltipLayers';
 import MapStyling from './MapStyling';
 import mapStylingSource from '!raw-loader!./MapStyling';
 
-const capitalize = s =>
-  s
-    .toLowerCase()
-    .split(' ')
-    .map(word => word[0].toUpperCase() + word.slice(1))
-    .join(' ');
-
 const allMaps = require
   .context('../../maps/json', true, /.json$/)
   .keys()
   .map(filename => {
     const cleanFileName = filename.replace(/\.\//, '');
 
-    const nameOnly = cleanFileName
-      .replace(/\.json$/, '')
-      .split('-')
-      .join(' ');
-
-    const temp = capitalize(nameOnly)
-      .split(' ')
-      .join('');
-
-    const safeName = temp.charAt(0).toLowerCase() + temp.substr(1);
-
     return {
       filename: cleanFileName,
       path: `../../maps/json/${cleanFileName}`,
-      import: safeName,
       json: require(`../../maps/json/${cleanFileName}`),
     };
   });
 
-const basicExample = importName => `import VectorMap, { ${importName} } from '${name}';
+const basicExample = (varName, fileName) => `import VectorMap from '${name}';
+import ${varName} from '${name}/maps/json/${fileName}.json';
 
-export const MyMap = () => <VectorMap {...${importName}} />`;
+export const MyMap = () => <VectorMap {...${varName}} />`;
 
 const documentationStories = storiesOf('📖 Documentation', module);
 
@@ -79,17 +65,17 @@ documentationStories.add('Readme', () => (
       </p>
     </div>
     <div style={{ maxWidth: '500px', margin: '5rem auto' }}>
-      <Example title="The World" code={basicExample('world')} isCodeOpen={false}>
+      <Example title="The World" code={basicExample('world', 'world')} isCodeOpen={false}>
         <VectorMap {...world} />
       </Example>
     </div>
     <div style={{ maxWidth: '500px', margin: '5rem auto' }}>
-      <Example title="New Zealand" code={basicExample('newZealand')} isCodeOpen={false}>
+      <Example title="New Zealand" code={basicExample('newZealand', 'new-zealand')} isCodeOpen={false}>
         <VectorMap {...newZealand} />
       </Example>
     </div>
     <div style={{ maxWidth: '500px', margin: '5rem auto' }}>
-      <Example title="USA" code={basicExample('usa')} isCodeOpen={false}>
+      <Example title="USA" code={basicExample('usa', 'usa')} isCodeOpen={false}>
         <VectorMap {...usa} />
       </Example>
     </div>
@@ -105,21 +91,14 @@ documentationStories.add('Avaliable Maps', () => (
   <>
     <h1>Avaliable Maps</h1>
     <p>
-      The <strong>Import Key</strong> is the name to use when importing a map, for example:
-      <br />
-      <code>
-        import {'{'} <strong>newZealand</strong> {'}'} from '{name}';
-      </code>
-    </p>
-    <p>
-      Alternatively, you can also import the json file directly with the <strong>Filename</strong> as follows:
+      You can import a maps json file directly with the <strong>Filename</strong> as follows:
       <br />
       <code>
         import newZealand from '{name}/maps/json/<strong>new-zealand.json</strong>';
       </code>
     </p>
     <p>
-      Below you'll find a list of all maps exported by the package.
+      Below you'll find a list of all maps in the package.
       <br />
       You can also create and use your own maps; see the 'Using your own SVG for a map' story.
     </p>
@@ -127,7 +106,6 @@ documentationStories.add('Avaliable Maps', () => (
       <thead>
         <tr>
           <th>Map Name</th>
-          <th>Import Key</th>
           <th>Filename</th>
         </tr>
       </thead>
@@ -135,9 +113,6 @@ documentationStories.add('Avaliable Maps', () => (
         {allMaps.map(map => (
           <tr key={map.filename}>
             <td>{map.json.name}</td>
-            <td>
-              <code>{map.import}</code>
-            </td>
             <td>
               <code>{map.filename}</code>
             </td>
