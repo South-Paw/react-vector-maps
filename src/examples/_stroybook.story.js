@@ -226,9 +226,3 @@ liveExampleStories.add('Styling maps', () => (
     <MapStyling map={newZealand} />
   </Example>
 ));
-
-const mapStories = storiesOf('🗺️ Included Maps', module);
-
-allMaps.forEach(map => {
-  mapStories.add(map.json.name, () => <VectorMap {...map.json} />);
-});

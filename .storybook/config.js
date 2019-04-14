@@ -1,5 +1,5 @@
-import { addDecorator, configure } from '@storybook/react';
-import { withOptions } from '@storybook/addon-options';
+import { addDecorator, addParameters, configure } from '@storybook/react';
+import { create } from '@storybook/theming';
 
 import Wrapper from './components/Wrapper';
 
@@ -9,12 +9,16 @@ const loadStories = () => req.keys().forEach(filename => req(filename));
 
 addDecorator(Wrapper);
 
-addDecorator(withOptions({
-  name: '🗺️ react-vector-maps',
-  url: 'https://github.com/South-Paw/react-vector-maps',
-  hierarchySeparator: /\/|\./,
-  hierarchyRootSeparator: /\|/,
-  showAddonPanel: false,
-}));
+const theme = create({
+  brandTitle: '🗺️ react-vector-maps',
+  brandUrl: 'https://github.com/South-Paw/react-vector-maps',
+});
+
+addParameters({
+  options: {
+    showPanel: false,
+    theme,
+  },
+});
 
 configure(loadStories, module);

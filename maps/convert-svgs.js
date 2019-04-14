@@ -85,14 +85,6 @@ class ConvertSVGs {
         };
 
         fs.writeFileSync(`${this.outputJsonPath}\\${name}.json`, stringify(map));
-
-        if (this.generatedExportsFilePath) {
-          const temp = capitalize(name.replace(/-/g, ' ')).replace(/ /g, '');
-          const safeName = temp.charAt(0).toLowerCase() + temp.substr(1);
-
-          imports.push(`import ${safeName} from '../maps/json/${name}.json';`);
-          exports.push(`  ${safeName},`);
-        }
       });
     });
   }
