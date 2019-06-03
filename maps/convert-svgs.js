@@ -28,10 +28,11 @@ const stringify = object => {
 
 class ConvertSVGs {
   constructor(config) {
-    const { inputSvgsPath, outputJsonPath } = config;
+    const { inputSvgsPath, outputJsonPath, outputSummary = false } = config;
 
     this.inputSvgsPath = inputSvgsPath;
     this.outputJsonPath = outputJsonPath;
+    this.outputSummary = outputSummary;
   }
 
   async cleanAndCreateFolder(path) {
@@ -42,25 +43,12 @@ class ConvertSVGs {
     }
   }
 
-  async cleanAndCreateFile(path, data) {
-    await rimraf.sync(path);
-
-    if (!fs.existsSync(path)) {
-      try {
-        fs.writeFileSync(path, data);
-      } catch (e) {
-        throw e;
-      }
-    }
-  }
-
   async run() {
     await this.cleanAndCreateFolder(this.outputJsonPath);
 
     const files = fs.readdirSync(this.inputSvgsPath);
 
-    const exports = [];
-    const imports = [];
+    const output = [];
 
     await asyncForEach(files, async filename => {
       const path = `${this.inputSvgsPath}\\${filename}`;
@@ -84,9 +72,18 @@ class ConvertSVGs {
           layers,
         };
 
+        output.push({
+          name: capitalize(name.split('-').join(' ')),
+          filename,
+        });
+
         fs.writeFileSync(`${this.outputJsonPath}\\${name}.json`, stringify(map));
       });
     });
+
+    if (this.outputSummary) {
+      fs.writeFileSync(`${this.outputJsonPath}\\..\\summary.json`, stringify(output));
+    }
   }
 }
 

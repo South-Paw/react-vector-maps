@@ -8,9 +8,10 @@ import { name, description } from '../../package.json';
 
 import VectorMap from '../index';
 
-import world from '../../maps/json/world.json';
+import world from '../../maps/json/world-low-res.json';
 import usa from '../../maps/json/usa.json';
 import newZealand from '../../maps/json/new-zealand.json';
+import allMaps from '../../maps/summary.json';
 
 import SimpleEvents from './SimpleEvents';
 import simpleEventsSource from '!raw-loader!./SimpleEvents';
@@ -29,19 +30,6 @@ import tooltipLayersSource from '!raw-loader!./TooltipLayers';
 
 import MapStyling from './MapStyling';
 import mapStylingSource from '!raw-loader!./MapStyling';
-
-const allMaps = require
-  .context('../../maps/json', true, /.json$/)
-  .keys()
-  .map(filename => {
-    const cleanFileName = filename.replace(/\.\//, '');
-
-    return {
-      filename: cleanFileName,
-      path: `../../maps/json/${cleanFileName}`,
-      json: require(`../../maps/json/${cleanFileName}`),
-    };
-  });
 
 const basicExample = (varName, fileName) => `import VectorMap from '${name}';
 import ${varName} from '${name}/maps/json/${fileName}.json';
@@ -105,14 +93,14 @@ documentationStories.add('Avaliable Maps', () => (
     <table style={{ width: '100%', margin: '5rem 0' }}>
       <thead>
         <tr>
-          <th>Map Name</th>
+          <th>Name</th>
           <th>Filename</th>
         </tr>
       </thead>
       <tbody>
         {allMaps.map(map => (
           <tr key={map.filename}>
-            <td>{map.json.name}</td>
+            <td>{map.name}</td>
             <td>
               <code>{map.filename}</code>
             </td>
@@ -171,9 +159,6 @@ const convertSVGs = new ConvertSVGs({
   // !! WARNING !!: This folder will be deleted and recreated by the script.
   outputJsonPath: \`\${__dirname}\\\\my\\\\json\\\\outputs\`,
 
-  // Optional: File path to generated exports file - the package uses this but you shouldn't need to.
-  generatedExportsFilePath: \`\${__dirname}\\\\my\\\\exports\\\\file.js\`,
-
 });
 
 convertSVGs.run();`}</pre>
@@ -189,7 +174,7 @@ convertSVGs.run();`}</pre>
   </>
 ));
 
-const liveExampleStories = storiesOf('👨‍💻 Live Examples', module);
+const liveExampleStories = storiesOf('👨‍💻 Examples', module);
 
 liveExampleStories.add('Simple events', () => (
   <Example title="Simple example" code={simpleEventsSource}>

@@ -1,6 +1,6 @@
 # react-vector-maps
 
-🗺️ A React component for interactive vector maps of the world and 100+ countries.
+🗺️ React component for interactive vector maps of the world and 100+ countries.
 
 [![Live Demo](https://img.shields.io/badge/netlify-live_demo-1e9498.svg)](https://react-vector-maps.netlify.com/)
 [![npm](https://img.shields.io/npm/v/@south-paw/react-vector-maps.svg)](https://www.npmjs.com/package/@south-paw/react-vector-maps)
