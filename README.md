@@ -22,8 +22,8 @@
 
 ```
 import React from 'react';
-import VectorMap from '@south-paw/react-vector-map';
-import world from '@south-paw/react-vector-map/maps/json/world.json';
+import VectorMap from '@south-paw/react-vector-maps';
+import world from '@south-paw/react-vector-maps/maps/json/world.json';
 
 const MyMap = () => (
   <VectorMap {...world} />
