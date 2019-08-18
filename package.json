@@ -1,6 +1,6 @@
 {
   "name": "@south-paw/react-vector-maps",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "React component for interactive vector maps of the world and 100+ countries.",
   "keywords": [
     "react",
@@ -42,32 +42,32 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "rimraf": "^2.6.3",
-    "svgson": "^3.1.0"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "rimraf": "^3.0.0",
+    "svgson": "^4.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-info": "^5.0.11",
-    "@storybook/react": "^5.0.11",
+    "@storybook/addon-info": "^5.1.11",
+    "@storybook/react": "^5.1.11",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.8.0",
+    "babel-eslint": "^10.0.2",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "coveralls": "^3.0.3",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "jest": "^24.8.0",
-    "polished": "^3.4.0",
-    "prettier": "^1.17.1",
-    "styled-components": "^4.2.1"
+    "jest": "^24.9.0",
+    "polished": "^3.4.1",
+    "prettier": "^1.18.2",
+    "styled-components": "^4.3.2"
   },
   "publishConfig": {
     "access": "public"
