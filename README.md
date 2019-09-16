@@ -16,7 +16,7 @@
 * Simple and easy to implement React component for rendering interactive vector maps.
 * Bring your own vector map, see how to [use your own SVG for a map](https://react-vector-maps.netlify.com/?path=/story/📖-documentation--using-your-own-svg-for-a-map).
 * Quick and easy to style maps however you like.
-* 100+ vector maps included out of the box, free from [MapSVG](http://mapsvg.com/maps/).
+* 100+ vector maps included out of the box, free from [MapSVG](http://mapsvg.com/maps).
 
 ## Basic Usage
 
