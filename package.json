@@ -13,7 +13,7 @@
     "country",
     "countries"
   ],
-  "homepage": "https://github.com/South-Paw/react-vector-maps",
+  "homepage": "https://react-vector-maps.netlify.com",
   "bugs": "https://github.com/South-Paw/react-vector-maps/issues",
   "license": "MIT",
   "author": {
@@ -32,6 +32,10 @@
   "scripts": {
     "build": "babel ./src --out-dir ./dist -s inline --ignore \"**/*.test.js\"",
     "clean": "rimraf dist coverage",
+    "docs:install": "cd docs && yarn",
+    "docs:build": "cd docs && yarn build",
+    "docs:develop": "cd docs && yarn develop",
+    "docs:serve": "cd docs && yarn serve",
     "lint": "eslint .",
     "test": "jest",
     "prepublishOnly": "yarn clean && yarn lint && yarn test && yarn build"
