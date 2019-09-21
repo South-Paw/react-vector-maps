@@ -1,7 +1,7 @@
 {
   "name": "@south-paw/react-vector-maps",
-  "version": "2.0.2",
-  "description": "React component for interactive vector maps of the world and 100+ countries.",
+  "version": "3.0.0-alpha.0",
+  "description": "React component for interactive vector maps of the world and 100+ countries",
   "keywords": [
     "react",
     "component",
@@ -22,9 +22,7 @@
     "url": "http://southpaw.co.nz/"
   },
   "files": [
-    "dist",
-    "maps/json",
-    "maps/convert-svgs.js"
+    "dist/*"
   ],
   "main": "dist/index.js",
   "repository": {
@@ -32,42 +30,41 @@
     "url": "https://github.com/South-Paw/react-vector-maps.git"
   },
   "scripts": {
-    "build": "rimraf dist && babel src -d dist --ignore \"**/*.test.js\",\"./src/examples\",\"./maps/**\"",
-    "convert": "node maps/run.js",
+    "build": "babel ./src --out-dir ./dist -s inline --ignore \"**/*.test.js\"",
+    "clean": "rimraf dist coverage",
     "lint": "eslint .",
-    "prepublishOnly": "yarn lint && yarn test && yarn build",
-    "storybook": "start-storybook -p 9000 -c .storybook",
-    "storybook:build": "build-storybook -c .storybook -o public/storybook",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "yarn clean && yarn lint && yarn test && yarn build"
   },
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "rimraf": "^2.6.3",
-    "svgson": "^3.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-info": "^5.0.11",
-    "@storybook/react": "^5.0.11",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.8.0",
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^9.1.4",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "coveralls": "^3.0.3",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "jest": "^24.8.0",
-    "polished": "^3.4.0",
-    "prettier": "^1.17.1",
-    "styled-components": "^4.2.1"
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "rimraf": "^3.0.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.0"
   },
   "publishConfig": {
     "access": "public"
