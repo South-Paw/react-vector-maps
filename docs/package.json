@@ -18,6 +18,7 @@
     "url": "https://github.com/South-Paw/react-vector-maps.git"
   },
   "scripts": {
+    "clean": "rimraf .cache public",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "serve": "gatsby serve"
@@ -31,11 +32,18 @@
     "gatsby-plugin-sharp": "^2.2.25",
     "gatsby-source-filesystem": "^2.1.26",
     "gatsby-transformer-sharp": "^2.2.16",
+    "polished": "^3.4.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-live": "^2.2.0",
+    "react-uid": "^2.2.0",
+    "styled-components": "^4.3.2",
+    "styled-normalize": "^8.0.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "rimraf": "^3.0.0"
+  },
   "private": true
 }

@@ -9,15 +9,8 @@ module.exports = {
     'react/forbid-prop-types': 'off',
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
-    // 'react/jsx-one-expression-per-line': 'off',
-    // 'jsx-a11y/anchor-is-valid': 'off',
-    // 'jsx-a11y/accessible-emoji': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'jsx-a11y/accessible-emoji': 'off',
     'no-console': 'off',
   },
-  overrides: [
-    // {
-    //   files: ['**/*.stories.js'],
-    //   rules: { 'import/no-extraneous-dependencies': 'off' },
-    // },
-  ],
 };

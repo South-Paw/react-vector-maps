@@ -18,15 +18,17 @@
 
 ```js
 import React from 'react';
-import VectorMap from '@south-paw/react-vector-map';
-import world from '@south-paw/react-vector-map/maps/json/world.json';
+import VectorMap from '@south-paw/react-vector-maps';
 
-const MyMap = () => <VectorMap {...world} />;
+// You'll need to download or create the json file for the component via the docs site.
+import world from './world.json';
 
-export default MyMap;
+const Map = () => <VectorMap {...world} />;
+
+export default Map;
 ```
 
-See site for more.
+See the [documentation](https://react-vector-maps.netlify.com/) for more examples and advanced usage of the component.
 
 ## Issues and Bugs
 

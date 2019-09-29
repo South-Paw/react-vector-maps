@@ -32,6 +32,7 @@
   "scripts": {
     "build": "babel ./src --out-dir ./dist -s inline --ignore \"**/*.test.js\"",
     "clean": "rimraf dist coverage",
+    "docs:clean": "cd docs && yarn clean",
     "docs:install": "cd docs && yarn",
     "docs:build": "cd docs && yarn build",
     "docs:develop": "cd docs && yarn develop",
@@ -50,6 +51,7 @@
     "@testing-library/react": "^9.1.4",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
+    "coveralls": "^3.0.6",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
