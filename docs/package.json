@@ -24,13 +24,16 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.15.20",
     "gatsby-image": "^2.2.20",
     "gatsby-plugin-manifest": "^2.2.18",
     "gatsby-plugin-offline": "^3.0.8",
     "gatsby-plugin-react-helmet": "^3.1.8",
     "gatsby-plugin-sharp": "^2.2.25",
+    "gatsby-plugin-styled-components": "^3.1.9",
     "gatsby-source-filesystem": "^2.1.26",
+    "gatsby-transformer-json": "^2.2.13",
     "gatsby-transformer-sharp": "^2.2.16",
     "polished": "^3.4.1",
     "prop-types": "^15.7.2",
@@ -39,7 +42,7 @@
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.0",
     "react-uid": "^2.2.0",
-    "styled-components": "^4.3.2",
+    "styled-components": "^4.4.0",
     "styled-normalize": "^8.0.6"
   },
   "devDependencies": {

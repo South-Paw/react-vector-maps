@@ -60,13 +60,12 @@ const Layout = ({ location, seo, hero, children }) => (
 
 Layout.propTypes = {
   location: PropTypes.shape({ pathname: PropTypes.string.isRequired }).isRequired,
-  seo: PropTypes.shape(SEO.propTypes),
+  seo: PropTypes.shape(SEO.propTypes).isRequired,
   hero: PropTypes.node,
   children: PropTypes.node,
 };
 
 Layout.defaultProps = {
-  seo: {},
   hero: null,
   children: null,
 };

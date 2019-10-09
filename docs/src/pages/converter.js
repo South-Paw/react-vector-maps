@@ -1,10 +1,16 @@
 import React from 'react';
-// import { Link } from 'gatsby';
 
 import { Layout } from '../components/Layout';
-// import Image from '../components/image';
-// import SEO from '../components/seo';
 
-const ConverterProps = () => <Layout>todo</Layout>;
+const seo = {
+  title: 'Converter',
+};
+
+const ConverterProps = () => (
+  <Layout seo={seo}>
+    <h2>Converter</h2>
+    <p>todo</p>
+  </Layout>
+);
 
 export default ConverterProps;

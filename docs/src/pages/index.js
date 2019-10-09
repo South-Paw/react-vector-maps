@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { VectorMap } from '../../../src/VectorMap';
 
-import worldLowRes from '../content/world-low-res.json';
+import worldLowRes from '../../static/maps/world-low-res.json';
 
 import { Layout } from '../components/Layout';
 import { Stargazers } from '../components/Stargazers';
@@ -78,13 +78,13 @@ const IndexPage = ({ ...other }) => (
       There is also a collection of <Link to="/maps">100+ maps</Link> that are ready to use with the component.
     </p>
     <p>
-      The <Link to="/props">VectorMap component props are listed here</Link> and you can look over some more{' '}
-      <Link to="/examples">advanced examples</Link> of use. You can also turn your own SVG into a valid map with our{' '}
-      <Link to="/converter">converter</Link>.
+      You might be intrested in some <Link to="/examples">examples</Link> of how the component can be used and note that
+      you can also turn your own SVG into a valid map with our <Link to="/converter">converter</Link>.
     </p>
+    <p>Stars on the project are always appreciated! 🙂</p>
     <p>
-      Stars on the project are always appreciated. To report and issue or contibute to the project, the source is all
-      avaliable <a href="https://github.com/South-Paw/react-vector-maps">on Github</a>.
+      To report an issue or contibute to the project please visit our{' '}
+      <a href="https://github.com/South-Paw/react-vector-maps">Github</a>.
     </p>
 
     <hr />
@@ -104,11 +104,13 @@ const IndexPage = ({ ...other }) => (
       <code>{`import { VectorMap } from '@south-paw/react-vector-maps';`}</code>
     </p>
     <p>
-      The component accepts a correctly structured object being spread onto it, you can download and save a valid json
-      object from <Link to="/maps">the maps page</Link> or you can create your own using the{' '}
-      <Link to="/converter">online SVG to JSON converter</Link>.
+      The <code>VectorMap</code>component accepts a correctly structured object being spread onto it.
     </p>
-    <p>Then, a simple example of use would be something like the following</p>
+    <p>
+      You can download and save a valid JSON object from <Link to="/maps">the maps page</Link> or you can create your
+      own using our <Link to="/converter">online SVG to JSON converter</Link>.
+    </p>
+    <p>When you&apos;ve got your map file, just import it and then combine it with the component as follows:</p>
     <Example
       isOpen
       code={`class App extends React.Component {

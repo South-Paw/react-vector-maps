@@ -1,33 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { uid } from 'react-uid';
-// import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 import { Layout } from '../components/Layout';
 
+const ResponsiveTable = styled.div`
+  overflow: auto;
+`;
+
 const PropTable = ({ items }) => (
-  <table>
-    <thead>
-      <tr>
-        <th>Prop</th>
-        <th>Type</th>
-        <th>Required</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      {items.map(({ prop, type, required, defaultProp, description }, id) => (
-        <tr key={uid({ prop, type, required, defaultProp, description }, id)}>
-          <td>{prop && <code>{prop}</code>}</td>
-          <td>{type && <code>{type}</code>}</td>
-          <td>{required && <>yes</>}</td>
-          <td>{defaultProp && <code>{defaultProp}</code>}</td>
-          <td>{description && <>{description}</>}</td>
+  <ResponsiveTable>
+    <table>
+      <thead>
+        <tr>
+          <th>Prop</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Default</th>
+          <th>Description</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {items.map(({ prop, type, required, defaultProp, description }, id) => (
+          <tr key={uid({ prop, type, required, defaultProp, description }, id)}>
+            <td>{prop && <code>{prop}</code>}</td>
+            <td>{type && <code>{type}</code>}</td>
+            <td style={{ textAlign: 'center' }}>{required && <>✔️</>}</td>
+            <td>{defaultProp && <code>{defaultProp}</code>}</td>
+            <td>{description && <>{description}</>}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </ResponsiveTable>
 );
 
 PropTable.propTypes = {
@@ -49,9 +55,27 @@ const PropsPage = () => (
     </h2>
     <PropTable
       items={[
-        { prop: 'id', type: 'string', required: true, defaultProp: '', description: 'Unique ID of the SVG element.' },
-        { prop: 'name', type: 'string', required: true, defaultProp: '', description: 'Name of the map.' },
-        { prop: 'viewBox', type: 'string', required: true, defaultProp: '', description: 'View box for the map.' },
+        {
+          prop: 'id',
+          type: 'string',
+          required: true,
+          defaultProp: '',
+          description: 'Unique ID of the SVG element.',
+        },
+        {
+          prop: 'name',
+          type: 'string',
+          required: true,
+          defaultProp: '',
+          description: 'Name of the map.',
+        },
+        {
+          prop: 'viewBox',
+          type: 'string',
+          required: true,
+          defaultProp: '',
+          description: 'View box for the map.',
+        },
         {
           prop: 'layers',
           type: 'arrayOf(Layer)',
@@ -97,9 +121,27 @@ const PropsPage = () => (
     </h3>
     <PropTable
       items={[
-        { prop: 'id', type: 'string', required: true, defaultProp: '', description: `Unique ID of each layer.` },
-        { prop: 'name', type: 'string', required: false, defaultProp: '', description: `Name of the layer.` },
-        { prop: 'd', type: 'string', required: true, defaultProp: '', description: `SVG path for the layer.` },
+        {
+          prop: 'id',
+          type: 'string',
+          required: true,
+          defaultProp: '',
+          description: `Unique ID of each layer.`,
+        },
+        {
+          prop: 'name',
+          type: 'string',
+          required: false,
+          defaultProp: '',
+          description: `Name of the layer.`,
+        },
+        {
+          prop: 'd',
+          type: 'string',
+          required: true,
+          defaultProp: '',
+          description: `SVG path for the layer.`,
+        },
       ]}
     />
   </Layout>
