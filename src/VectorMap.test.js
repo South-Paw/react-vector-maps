@@ -38,4 +38,24 @@ describe('VectorMap', () => {
 
     expect(container.querySelector('svg')).toBeInTheDocument();
   });
+
+  it('should throw and error without a layers prop', () => {
+    const spy = jest.spyOn(console, 'error');
+
+    render(<VectorMap {...args} layers={undefined} />);
+
+    expect(spy).toHaveBeenCalledWith(
+      `[react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`,
+    );
+  });
+
+  it('should throw and error without an empty layers array', () => {
+    const spy = jest.spyOn(console, 'error');
+
+    render(<VectorMap {...args} layers={[]} />);
+
+    expect(spy).toHaveBeenCalledWith(
+      `[react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`,
+    );
+  });
 });

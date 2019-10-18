@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const VectorMap = ({ id, name, layers, tabIndex, layerProps, checkedLayers, currentLayers, ...other }) => {
-  if (!layers) {
+  if (!layers || !layers.length > 0) {
     console.error(`[react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`);
     return null;
   }
