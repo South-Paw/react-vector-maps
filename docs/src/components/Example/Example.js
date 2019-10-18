@@ -24,10 +24,10 @@ const Example = ({ isOpen, code, ...other }) => {
       <LiveProvider code={code} {...other}>
         <Editor isOpen={showCode}>
           <LiveEditor />
-          <Error>
-            <LiveError />
-          </Error>
         </Editor>
+        <Error>
+          <LiveError />
+        </Error>
         <Preview>
           <LivePreview />
         </Preview>
