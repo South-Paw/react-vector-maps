@@ -175,14 +175,21 @@ render(() => {
   {
     title: 'Layer links',
     description: ``,
-    scope: {},
-    code: `() => <>todo</>`,
-  },
-  {
-    title: 'Layer tooltips',
-    description: ``,
-    scope: {},
-    code: `() => <>todo</>`,
+    scope: { nzMap },
+    code: `() => {
+  const style = { margin: '1rem auto', width: '300px' };
+
+  const onClick = ({ target }) => {
+    const name = target.attributes.name.value;
+    window.open(\`https://www.google.com/search?q=\${name}%20nz\`)
+  }
+
+  return (
+    <div style={style}>
+      <VectorMap {...nzMap} layerProps={{ onClick }} />
+    </div>
+  );
+}`,
   },
 ];
 
