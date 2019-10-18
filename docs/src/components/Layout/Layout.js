@@ -11,8 +11,8 @@ import { Header, Nav, NavInner, Hero, Main, Footer, FooterInner, Item } from './
 
 const items = [
   { label: 'Home', to: '/' },
-  { label: 'Props', to: '/props' },
   { label: 'Examples', to: '/examples' },
+  { label: 'Props', to: '/props' },
   { label: 'Maps', to: '/maps' },
   { label: 'Converter', to: '/converter' },
 ];
