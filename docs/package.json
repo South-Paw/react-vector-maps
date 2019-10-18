@@ -1,6 +1,6 @@
 {
   "name": "@south-paw/react-vector-maps-docs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "keywords": [],
   "homepage": "https://react-vector-maps.netlify.com",
@@ -41,6 +41,7 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.0",
+    "react-markdown": "^4.2.2",
     "react-uid": "^2.2.0",
     "styled-components": "^4.4.0",
     "styled-normalize": "^8.0.6"
