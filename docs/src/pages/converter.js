@@ -223,7 +223,7 @@ const ConverterProps = () => {
 </svg>`}
       </pre>
       <hr />
-      <h3>File</h3>
+      <h3>Add your SVG file</h3>
       <FileDropzone onFileDropped={onFileDropped} fileName={fileName} />
       {error && <Error>{error}</Error>}
       {isLoading && !output && <Loading>Loading...</Loading>}
