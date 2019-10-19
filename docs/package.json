@@ -39,12 +39,14 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-dropzone": "^10.1.10",
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.0",
     "react-markdown": "^4.2.2",
     "react-uid": "^2.2.0",
     "styled-components": "^4.4.0",
-    "styled-normalize": "^8.0.6"
+    "styled-normalize": "^8.0.6",
+    "svgson": "^4.0.0"
   },
   "devDependencies": {
     "rimraf": "^3.0.0"
