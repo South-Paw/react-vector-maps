@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const fs = require('fs');
 const rimraf = require('rimraf');
 const svgson = require('svgson');

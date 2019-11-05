@@ -3,10 +3,12 @@
 node_modules
 yarn-error.log
 
-# generated folders
-coverage
+# build directories
 dist
 public
+
+# generated folders
+coverage
 
 # OS generated files
 .DS_Store

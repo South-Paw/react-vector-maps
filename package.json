@@ -1,7 +1,7 @@
 {
   "name": "@south-paw/react-vector-maps",
-  "version": "2.0.3",
-  "description": "React component for interactive vector maps of the world and 100+ countries.",
+  "version": "3.0.0",
+  "description": "A React component for interactive vector maps of the world and 100+ countries",
   "keywords": [
     "react",
     "component",
@@ -13,7 +13,7 @@
     "country",
     "countries"
   ],
-  "homepage": "https://github.com/South-Paw/react-vector-maps",
+  "homepage": "https://react-vector-maps.netlify.com",
   "bugs": "https://github.com/South-Paw/react-vector-maps/issues",
   "license": "MIT",
   "author": {
@@ -22,9 +22,7 @@
     "url": "http://southpaw.co.nz/"
   },
   "files": [
-    "dist",
-    "maps/json",
-    "maps/convert-svgs.js"
+    "dist/*"
   ],
   "main": "dist/index.js",
   "repository": {
@@ -32,42 +30,47 @@
     "url": "https://github.com/South-Paw/react-vector-maps.git"
   },
   "scripts": {
-    "build": "rimraf dist && babel src -d dist --ignore \"**/*.test.js\",\"./src/examples\",\"./maps/**\"",
-    "convert": "node maps/run.js",
+    "build": "babel ./src --out-dir ./dist -s inline --ignore \"**/*.test.js\"",
+    "clean": "rimraf dist coverage",
+    "docs:clean": "cd docs && yarn clean",
+    "docs:install": "cd docs && yarn",
+    "docs:build": "cd docs && yarn build",
+    "docs:develop": "cd docs && yarn develop",
+    "docs:serve": "cd docs && yarn serve",
     "lint": "eslint .",
-    "prepublishOnly": "yarn lint && yarn test && yarn build",
-    "storybook": "start-storybook -p 9000 -c .storybook",
-    "storybook:build": "build-storybook -c .storybook -o public/storybook",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "yarn clean && yarn lint && yarn test && yarn build"
   },
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "rimraf": "^3.0.0",
-    "svgson": "^4.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-info": "^5.1.11",
-    "@storybook/react": "^5.1.11",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "^10.0.2",
-    "babel-jest": "^24.9.0",
+    "@babel/cli": "^7.6.3",
+    "@babel/core": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@testing-library/jest-dom": "^4.1.1",
+    "@testing-library/react": "^9.3.0",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "coveralls": "^3.0.6",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
     "jest": "^24.9.0",
-    "polished": "^3.4.1",
     "prettier": "^1.18.2",
-    "styled-components": "^4.3.2"
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "rimraf": "^3.0.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.0"
   },
   "publishConfig": {
     "access": "public"
