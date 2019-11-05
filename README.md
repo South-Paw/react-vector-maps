@@ -1,6 +1,6 @@
 # react-vector-maps
 
-🗺️ React component for interactive vector maps of the world and 100+ countries
+🗺️ A React component for interactive vector maps of the world and 100+ countries
 
 [![npm](https://img.shields.io/npm/v/@south-paw/react-vector-maps.svg)](https://www.npmjs.com/package/@south-paw/react-vector-maps)
 [![CI Status](https://img.shields.io/travis/South-Paw/react-vector-maps.svg)](https://travis-ci.org/South-Paw/react-vector-maps)
@@ -12,7 +12,10 @@
 
 ## Features
 
-- todo
+- Simple and easy to implement React component for rendering interactive vector maps
+- [100+ vector maps included](https://react-vector-maps.netlify.com/maps) out of the box, free from [MapSVG](https://mapsvg.com/maps)
+- Convert your own vector map for use with our [online converter](https://react-vector-maps.netlify.com/converter)
+- Quick and straight forward to style your map however you want to
 
 ## Basic Usage
 
@@ -20,12 +23,10 @@
 import React from 'react';
 import VectorMap from '@south-paw/react-vector-maps';
 
-// You'll need to download or create the json file for the component via the docs site.
+// You'll need to download the json file from the docs site or you can create your own.
 import world from './world.json';
 
-const Map = () => <VectorMap {...world} />;
-
-export default Map;
+export const Map = () => <VectorMap {...world} />;
 ```
 
 See the [documentation](https://react-vector-maps.netlify.com/) for more examples and advanced usage of the component.
@@ -39,7 +40,32 @@ If you manage to find any, please report them [here](https://github.com/South-Pa
 Grab the repo and then install dependencies with `yarn`.
 
 ```bash
-# todo
+# run tests
+yarn test
+
+# lint source
+yarn lint
+
+# build source
+yarn build
+
+# clean up build folders
+yarn clean
+
+# start docs for development
+yarn docs:develop
+
+# clean up docs folders
+yarn docs:clean
+
+# yarn install for the docs
+yarn docs:install
+
+# build docs for deployment
+yarn docs:build
+
+# serve docs from /public after build
+yarn docs:serve
 ```
 
 ## License
