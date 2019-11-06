@@ -58,4 +58,16 @@ describe('VectorMap', () => {
       `[react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`,
     );
   });
+
+  it(`should add 'aria-checked' to a layer when it's id is 'checked'`, () => {
+    const { container } = render(<VectorMap {...args} checkedLayers={['nz-auk']} />);
+
+    expect(container.querySelector('[aria-checked="true"]').id).toEqual('nz-auk');
+  });
+
+  it(`should add 'aria-current' to a layer when it's id is 'current'`, () => {
+    const { container } = render(<VectorMap {...args} currentLayers={['nz-auk']} />);
+
+    expect(container.querySelector('[aria-current="true"]').id).toEqual('nz-auk');
+  });
 });
