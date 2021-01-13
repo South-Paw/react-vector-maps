@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { uid } from 'react-uid';
-
 import { Container } from '../Container';
 import { SEO } from '../SEO';
 import { Theme } from '../Theme';
-
-import { Header, Nav, NavInner, Hero, Main, Footer, FooterInner, Item } from './styled';
+import { Footer, FooterInner, Header, Hero, Item, Main, Nav, NavInner } from './styled';
 
 const items = [
   { label: 'Home', to: '/' },
@@ -25,7 +23,7 @@ const Layout = ({ location, seo, hero, children }) => (
         <Nav>
           <Container>
             <NavInner>
-              {items.map(item => {
+              {items.map((item) => {
                 const { label, ...other } = item;
                 return (
                   <Link activeClassName="active" key={uid(item)} {...other}>

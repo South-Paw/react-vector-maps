@@ -1,14 +1,11 @@
-import React from 'react';
 import { Link } from 'gatsby';
+import React from 'react';
 import styled from 'styled-components';
-
 import { VectorMap } from '../../../src/VectorMap';
-
 import worldLowRes from '../../static/maps/world-low-res.json';
-
+import { Example } from '../components/Example';
 import { Layout } from '../components/Layout';
 import { Stargazers } from '../components/Stargazers';
-import { Example } from '../components/Example';
 
 const seo = {
   title: 'Home',
@@ -31,7 +28,7 @@ const HeroWrapper = styled.div`
 
 const Item = styled.div`
   margin: 0 8px;
-  flex: 1 1 ${p => p.basis}%;
+  flex: 1 1 ${(p) => p.basis}%;
 
   &:first-child {
     margin-left: 0;
@@ -93,10 +90,10 @@ const IndexPage = ({ ...other }) => (
     <p>Install the package with either</p>
     <ul>
       <li>
-        <code>yarn add @south-paw/react-vector-maps</code>
+        <code>npm i @south-paw/react-vector-maps</code>
       </li>
       <li>
-        <code>npm i @south-paw/react-vector-maps</code>
+        <code>yarn add @south-paw/react-vector-maps</code>
       </li>
     </ul>
     <p>You can then use the component as follows</p>

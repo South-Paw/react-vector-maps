@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GithubIcon = props => (
+const GithubIcon = (props) => (
   <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" {...props}>
     <path
       fillRule="evenodd"

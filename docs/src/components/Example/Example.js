@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-
-import { StyledExample, Toolbar, Button, Editor, Error, Preview } from './styled';
+import React, { useState } from 'react';
+import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
+import { Button, Editor, Error, Preview, StyledExample, Toolbar } from './styled';
 
 const Example = ({ isOpen, code, ...other }) => {
   const [showCode, setShowCode] = useState(isOpen);

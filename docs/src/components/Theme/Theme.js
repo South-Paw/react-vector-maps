@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
-
 import { Reset } from './Reset';
 import { system } from './system';
 

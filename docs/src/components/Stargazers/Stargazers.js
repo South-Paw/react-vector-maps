@@ -1,9 +1,8 @@
 /*  eslint-env browser */
 
 import React, { PureComponent } from 'react';
-
 import { GithubIcon } from './GithubIcon';
-import { Wrapper, GithubButton, GithubBadge } from './styled';
+import { GithubBadge, GithubButton, Wrapper } from './styled';
 
 class Stargazers extends PureComponent {
   constructor(props) {
@@ -14,9 +13,9 @@ class Stargazers extends PureComponent {
 
   componentDidMount = () => {
     fetch('//api.github.com/repos/south-paw/react-vector-maps')
-      .then(data => data.json())
-      .then(json => this.setState({ count: json.stargazers_count }))
-      .catch(error => console.error(error));
+      .then((data) => data.json())
+      .then((json) => this.setState({ count: json.stargazers_count }))
+      .catch((error) => console.error(error));
   };
 
   render = () => {

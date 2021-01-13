@@ -1,9 +1,8 @@
+import { rgba } from 'polished';
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { rgba } from 'polished';
-
-import nzMap from '../../static/maps/new-zealand.json';
 import { VectorMap } from '../../../src/VectorMap';
+import nzMap from '../../static/maps/new-zealand.json';
 import { Example } from '../components/Example';
 import { Layout } from '../components/Layout';
 import { Markdown } from '../components/Markdown';
@@ -91,6 +90,29 @@ const examples = [
 render(
   <Map>
     <VectorMap {...nzMap} checkedLayers={['nz-auk']} currentLayers={['nz-wgn']} />
+  </Map>
+)`,
+  },
+  {
+    title: 'Styling a map with gradients',
+    description: `An example of using gradients on the map paths.`,
+    scope: { nzMap, styled },
+    exampleProps: { noInline: true },
+    code: `const Map = styled.div\`
+  margin: 1rem auto;
+  width: 300px;
+\`;
+
+render(
+  <Map>
+    <VectorMap {...nzMap} layerProps={{ fill: "url(#gradient)" }} checkedLayers={['nz-auk']} currentLayers={['nz-wgn']}>
+      <defs>
+        <radialGradient id="gradient">
+          <stop offset="10%" stop-color="gold" />
+          <stop offset="95%" stop-color="red" />
+        </radialGradient>
+      </defs>
+    </VectorMap>
   </Map>
 )`,
   },
@@ -193,11 +215,7 @@ render(() => {
   },
 ];
 
-const getId = anchor =>
-  `${anchor}`
-    .toLowerCase()
-    .split(' ')
-    .join('-');
+const getId = (anchor) => `${anchor}`.toLowerCase().split(' ').join('-');
 
 const ExamplesPage = ({ ...other }) => (
   <Layout seo={seo} {...other}>
