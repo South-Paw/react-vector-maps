@@ -1,6 +1,6 @@
 {
   "name": "@south-paw/react-vector-maps",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A React component for interactive vector maps of the world and 100+ countries",
   "keywords": [
     "react",
@@ -22,55 +22,59 @@
     "url": "http://southpaw.co.nz/"
   },
   "files": [
-    "dist/*"
+    "dist"
   ],
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/react-vector-maps.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/South-Paw/react-vector-maps.git"
   },
   "scripts": {
-    "build": "babel ./src --out-dir ./dist -s inline --ignore \"**/*.test.js\"",
     "clean": "rimraf dist coverage",
-    "docs:clean": "cd docs && yarn clean",
-    "docs:install": "cd docs && yarn",
-    "docs:build": "cd docs && yarn build",
-    "docs:develop": "cd docs && yarn develop",
-    "docs:serve": "cd docs && yarn serve",
-    "lint": "eslint .",
-    "test": "jest",
-    "prepublishOnly": "yarn clean && yarn lint && yarn test && yarn build"
+    "start": "tsdx watch",
+    "start:storybook": "start-storybook -p 9000",
+    "build": "tsdx build",
+    "build:storybook": "build-storybook --docs",
+    "lint": "eslint ./src",
+    "test": "tsdx test --passWithNoTests",
+    "docs:clean": "cd docs && npm run clean",
+    "docs:install": "cd docs && npm i",
+    "docs:build": "cd docs && npm run build",
+    "docs:develop": "cd docs && npm run develop",
+    "docs:serve": "cd docs && npm run serve"
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.7.0",
-    "@babel/core": "^7.7.0",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
-    "@testing-library/jest-dom": "^4.2.3",
-    "@testing-library/react": "^9.3.2",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
-    "coveralls": "^3.0.7",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^23.0.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^2.2.0",
-    "jest": "^24.9.0",
-    "prettier": "^1.18.2",
-    "prop-types": "^15.7.2",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "rimraf": "^3.0.0"
+    "@babel/core": "^7.12.10",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "rimraf": "^3.0.2",
+    "styled-components": "^5.2.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
   },
   "peerDependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.8.0"
+    "react": ">=16.8.0"
   },
   "publishConfig": {
     "access": "public"

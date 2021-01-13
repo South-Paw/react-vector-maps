@@ -1,14 +1,6 @@
-# project dependencies
-.cache
-node_modules
-yarn-error.log
-
-# build directories
-dist
-public
-
-# generated folders
-coverage
-
-# OS generated files
+*.log
 .DS_Store
+node_modules
+.cache
+coverage
+dist

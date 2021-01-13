@@ -3,12 +3,8 @@
 🗺️ A React component for interactive vector maps of the world and 100+ countries
 
 [![npm](https://img.shields.io/npm/v/@south-paw/react-vector-maps.svg)](https://www.npmjs.com/package/@south-paw/react-vector-maps)
-[![CI Status](https://img.shields.io/travis/South-Paw/react-vector-maps.svg)](https://travis-ci.org/South-Paw/react-vector-maps)
-[![Coveralls Status](https://img.shields.io/coveralls/github/South-Paw/react-vector-maps.svg)](https://coveralls.io/github/South-Paw/react-vector-maps)
 [![Dependencies](https://david-dm.org/South-Paw/react-vector-maps/status.svg)](https://david-dm.org/South-Paw/react-vector-maps)
 [![Dev Dependencies](https://david-dm.org/South-Paw/react-vector-maps/dev-status.svg)](https://david-dm.org/South-Paw/react-vector-maps?type=dev)
-
----
 
 ## Features
 
@@ -19,7 +15,7 @@
 
 ## Basic Usage
 
-```js
+```jsx
 import React from 'react';
 import { VectorMap } from '@south-paw/react-vector-maps';
 
@@ -37,35 +33,35 @@ If you manage to find any, please report them [here](https://github.com/South-Pa
 
 ## Development and Contributing
 
-Grab the repo and then install dependencies with `yarn`.
+Grab the repo and then install dependencies with `npm i`.
 
 ```bash
 # run tests
-yarn test
+npm run test
 
 # lint source
-yarn lint
+npm run lint
 
 # build source
-yarn build
+npm run build
 
 # clean up build folders
-yarn clean
+npm run clean
 
 # start docs for development
-yarn docs:develop
+npm run docs:develop
 
 # clean up docs folders
-yarn docs:clean
+npm run docs:clean
 
 # yarn install for the docs
-yarn docs:install
+npm run docs:install
 
 # build docs for deployment
-yarn docs:build
+npm run docs:build
 
 # serve docs from /public after build
-yarn docs:serve
+npm run docs:serve
 ```
 
 ## License
