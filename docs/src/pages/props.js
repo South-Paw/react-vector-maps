@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { uid } from 'react-uid';
 import styled from 'styled-components';
-
 import { Layout } from '../components/Layout';
 
 const ResponsiveTable = styled.div`
@@ -51,7 +50,7 @@ PropTable.propTypes = {
 const PropsPage = () => (
   <Layout>
     <h2>
-      <a href="//github.com/South-Paw/react-vector-maps/blob/master/src/VectorMap.js#L27">VectorMap</a>
+      <a href="//github.com/South-Paw/react-vector-maps/blob/master/src/VectorMap.tsx#L12">VectorMapProps</a>
     </h2>
     <PropTable
       items={[
@@ -78,7 +77,7 @@ const PropsPage = () => (
         },
         {
           prop: 'layers',
-          type: 'arrayOf(Layer)',
+          type: 'VectorMapLayer[]',
           required: true,
           defaultProp: '',
           description: 'Layers that represent the regions of the map.',
@@ -94,21 +93,21 @@ const PropsPage = () => (
           prop: 'layerProps',
           type: 'object',
           required: false,
-          defaultProp: 'null',
+          defaultProp: '',
           description: 'Props to spread onto each layer.',
         },
         {
           prop: 'checkedLayers',
-          type: 'arrayOf(string)',
+          type: 'string[]',
           required: false,
-          defaultProp: 'null',
+          defaultProp: '',
           description: `Layer IDs to 'select' with the 'aria-checked' attribute.`,
         },
         {
           prop: 'currentLayers',
-          type: 'arrayOf(string)',
+          type: 'string[]',
           required: false,
-          defaultProp: 'null',
+          defaultProp: '',
           description: `Layer IDs to 'select' with the 'aria-current' attribute.`,
         },
       ]}
@@ -117,7 +116,7 @@ const PropsPage = () => (
     <hr />
 
     <h3>
-      <a href="//github.com/South-Paw/react-vector-maps/blob/master/src/VectorMap.js#L35">VectorMap Layer</a>
+      <a href="//github.com/South-Paw/react-vector-maps/blob/master/src/VectorMap.tsx#L3">VectorMapLayer</a>
     </h3>
     <PropTable
       items={[

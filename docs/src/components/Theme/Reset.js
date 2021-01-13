@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
 import { darken, rgba } from 'polished';
+import { createGlobalStyle } from 'styled-components';
 
 export const Reset = createGlobalStyle`
   * {
@@ -12,8 +12,8 @@ export const Reset = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 16px;
     line-height: 24px;
-    color: ${p => p.theme.colors.dark};
-    background-color: ${p => p.theme.colors.alt};
+    color: ${(p) => p.theme.colors.dark};
+    background-color: ${(p) => p.theme.colors.alt};
   }
 
   h1 {
@@ -69,17 +69,17 @@ export const Reset = createGlobalStyle`
   }
 
   a {
-    color: ${p => p.theme.colors.primary};
+    color: ${(p) => p.theme.colors.primary};
     text-decoration: none;
 
     &:focus,
     &:hover {
-      color: ${p => darken(0.2, p.theme.colors.primary)};
+      color: ${(p) => darken(0.2, p.theme.colors.primary)};
       text-decoration: underline;
     }
 
     &:active {
-      color: ${p => darken(0.2, p.theme.colors.primary)};
+      color: ${(p) => darken(0.2, p.theme.colors.primary)};
     }
   }
 
@@ -96,19 +96,19 @@ export const Reset = createGlobalStyle`
   hr {
     margin: 32px 0;
     height: 2px;
-    background-color: ${p => rgba(p.theme.colors.dark, 0.13)};
+    background-color: ${(p) => rgba(p.theme.colors.dark, 0.13)};
     border: none;
   }
 
   code {
     padding: 1px 6px;
-    background-color: ${p => rgba(p.theme.colors.black, 0.075)};
+    background-color: ${(p) => rgba(p.theme.colors.black, 0.075)};
     border-radius: 2px;
   }
 
   pre {
     padding: 8px;
-    background-color: ${p => rgba(p.theme.colors.black, 0.075)};
+    background-color: ${(p) => rgba(p.theme.colors.black, 0.075)};
     border-radius: 2px;
 
     code {
@@ -122,13 +122,13 @@ export const Reset = createGlobalStyle`
   table {
     margin: 16px 0;
     width: 100%;
-    border: 1px solid ${p => rgba(p.theme.colors.dark, 0.13)};
+    border: 1px solid ${(p) => rgba(p.theme.colors.dark, 0.13)};
     border-spacing: 0;
 
     tr {
       th,td {
         padding: 4px;
-        border: 1px solid ${p => rgba(p.theme.colors.dark, 0.13)};
+        border: 1px solid ${(p) => rgba(p.theme.colors.dark, 0.13)};
       }
     }
   }

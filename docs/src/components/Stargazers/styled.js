@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { rgba } from 'polished';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,9 +11,9 @@ export const GithubButton = styled.a`
   display: flex;
   align-items: center;
   border-radius: 2px;
-  color: ${p => p.theme.colors.dark};
-  background-color: ${p => p.theme.colors.white};
-  box-shadow: 0 1px 2px ${p => rgba(p.theme.colors.black, 0.2)};
+  color: ${(p) => p.theme.colors.dark};
+  background-color: ${(p) => p.theme.colors.white};
+  box-shadow: 0 1px 2px ${(p) => rgba(p.theme.colors.black, 0.2)};
   cursor: pointer;
   font-weight: 500;
   font-size: 13px;
@@ -23,15 +23,15 @@ export const GithubButton = styled.a`
 
   :hover,
   :focus {
-    box-shadow: 0 1px 0 ${p => rgba(p.theme.colors.black, 0.2)}, 0 2px 5px ${p => rgba(p.theme.colors.black, 0.2)};
-    color: ${p => p.theme.colors.gray};
+    box-shadow: 0 1px 0 ${(p) => rgba(p.theme.colors.black, 0.2)}, 0 2px 5px ${(p) => rgba(p.theme.colors.black, 0.2)};
+    color: ${(p) => p.theme.colors.gray};
     text-decoration: none;
   }
 
   :active {
-    background-color: ${p => p.theme.colors.alt};
-    box-shadow: 0 1px 0 ${p => rgba(p.theme.colors.black, 0.2)};
-    color: ${p => p.theme.colors.gray};
+    background-color: ${(p) => p.theme.colors.alt};
+    box-shadow: 0 1px 0 ${(p) => rgba(p.theme.colors.black, 0.2)};
+    color: ${(p) => p.theme.colors.gray};
     bottom: -2px;
   }
 `;
@@ -39,8 +39,8 @@ export const GithubButton = styled.a`
 export const GithubBadge = styled.a`
   margin-left: 6px;
   padding: 2px 8px;
-  background-color: ${p => p.theme.colors.white};
-  color: ${p => p.theme.colors.dark};
+  background-color: ${(p) => p.theme.colors.white};
+  color: ${(p) => p.theme.colors.dark};
   cursor: pointer;
   display: inline-block;
   font-weight: 500;
@@ -51,7 +51,7 @@ export const GithubBadge = styled.a`
 
   :hover,
   :focus {
-    color: ${p => p.theme.colors.gray};
+    color: ${(p) => p.theme.colors.gray};
     text-decoration: none;
   }
 
@@ -65,7 +65,7 @@ export const GithubBadge = styled.a`
     width: 0px;
     border-width: 4px;
     border-style: solid;
-    border-color: transparent ${p => p.theme.colors.white} transparent transparent;
+    border-color: transparent ${(p) => p.theme.colors.white} transparent transparent;
     border-image: initial;
   }
 `;

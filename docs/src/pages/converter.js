@@ -1,24 +1,23 @@
 /* eslint-env browser */
 
+import { rgba } from 'polished';
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { parse } from 'svgson';
 import styled from 'styled-components';
-import { rgba } from 'polished';
-
+import { parse } from 'svgson';
 import { VectorMap } from '../../../src/VectorMap';
 import { Layout } from '../components/Layout';
 
-const capitalize = s =>
+const capitalize = (s) =>
   s
     .toLowerCase()
     .split(' ')
-    .map(word => word[0].toUpperCase() + word.slice(1))
+    .map((word) => word[0].toUpperCase() + word.slice(1))
     .join(' ');
 
 const Dropzone = styled.div`
   padding: 1rem;
-  border: 2px dashed ${p => rgba(p.theme.colors.dark, 0.13)};
+  border: 2px dashed ${(p) => rgba(p.theme.colors.dark, 0.13)};
   border-radius: 4px;
   cursor: pointer;
   outline: none;
@@ -26,7 +25,7 @@ const Dropzone = styled.div`
   transition: border-color ease-in-out 0.3s;
 
   &:focus {
-    border-color: ${p => p.theme.colors.primary};
+    border-color: ${(p) => p.theme.colors.primary};
   }
 `;
 
@@ -34,7 +33,7 @@ const Error = styled.div`
   margin-top: 16px;
   padding: 8px 16px;
   background-color: #960e0e;
-  color: ${p => p.theme.colors.white};
+  color: ${(p) => p.theme.colors.white};
 `;
 
 const Loading = styled.div`
@@ -45,7 +44,7 @@ const Loading = styled.div`
 const Preview = styled.div`
   margin-top: 16px;
   padding: 1rem;
-  border: 4px solid ${p => rgba(p.theme.colors.dark, 0.13)};
+  border: 4px solid ${(p) => rgba(p.theme.colors.dark, 0.13)};
 
   svg {
     margin: 0 auto;
@@ -61,7 +60,7 @@ const Output = styled.textarea`
   min-width: 100%;
   min-height: 8rem;
   height: 8rem;
-  border: 4px solid ${p => rgba(p.theme.colors.dark, 0.13)};
+  border: 4px solid ${(p) => rgba(p.theme.colors.dark, 0.13)};
   font-size: 14px;
   outline: none;
 `;
@@ -81,19 +80,19 @@ const Button = styled.button`
   display: flex;
   flex-flow: nowrap row;
   align-items: center;
-  background-color: ${p => p.theme.colors.white};
+  background-color: ${(p) => p.theme.colors.white};
   border: none;
   border-radius: 2px;
-  box-shadow: 0 1px 2px ${p => rgba(p.theme.colors.black, 0.2)};
-  color: ${p => p.theme.colors.white};
+  box-shadow: 0 1px 2px ${(p) => rgba(p.theme.colors.black, 0.2)};
+  color: ${(p) => p.theme.colors.white};
   cursor: pointer;
   font-weight: 500;
   line-height: 1.5;
 
   :hover,
   :focus {
-    box-shadow: 0 1px 0 ${p => rgba(p.theme.colors.black, 0.2)}, 0 2px 5px ${p => rgba(p.theme.colors.black, 0.2)};
-    color: ${p => p.theme.colors.alt};
+    box-shadow: 0 1px 0 ${(p) => rgba(p.theme.colors.black, 0.2)}, 0 2px 5px ${(p) => rgba(p.theme.colors.black, 0.2)};
+    color: ${(p) => p.theme.colors.alt};
     text-decoration: none;
   }
 `;
@@ -125,7 +124,7 @@ const ConverterProps = () => {
   const [fileName, setFileName] = useState(undefined);
   const [output, setOutput] = useState(undefined);
 
-  const onFileDropped = acceptedFiles => {
+  const onFileDropped = (acceptedFiles) => {
     setError(undefined);
     setIsLoading(true);
     setFileName(undefined);
@@ -152,7 +151,7 @@ const ConverterProps = () => {
     file
       .text()
       .then(parse)
-      .then(json => {
+      .then((json) => {
         const localFileName = file.name.split('.')[0];
 
         const layers = json.children
@@ -173,7 +172,7 @@ const ConverterProps = () => {
         setOutput(map);
         setIsLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         setError(err.message);
         setIsLoading(false);

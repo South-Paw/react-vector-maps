@@ -1,7 +1,6 @@
-import React from 'react';
+import { graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
-
+import React from 'react';
 import { Layout } from '../components/Layout';
 
 const seo = {

@@ -1,10 +1,6 @@
-/* eslint-env jest */
-
-import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-
 import '@testing-library/jest-dom/extend-expect';
-
+import { cleanup, render } from '@testing-library/react';
+import React from 'react';
 import { VectorMap } from './VectorMap';
 
 const args = {
@@ -42,7 +38,7 @@ describe('VectorMap', () => {
   it('should throw and error without a layers prop', () => {
     const spy = jest.spyOn(console, 'error');
 
-    render(<VectorMap {...args} layers={undefined} />);
+    render(<VectorMap {...args} layers={undefined as any} />);
 
     expect(spy).toHaveBeenCalledWith(
       `[react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`,
@@ -62,12 +58,12 @@ describe('VectorMap', () => {
   it(`should add 'aria-checked' to a layer when it's id is 'checked'`, () => {
     const { container } = render(<VectorMap {...args} checkedLayers={['nz-auk']} />);
 
-    expect(container.querySelector('[aria-checked="true"]').id).toEqual('nz-auk');
+    expect(container.querySelector('[aria-checked="true"]')?.id).toEqual('nz-auk');
   });
 
   it(`should add 'aria-current' to a layer when it's id is 'current'`, () => {
     const { container } = render(<VectorMap {...args} currentLayers={['nz-auk']} />);
 
-    expect(container.querySelector('[aria-current="true"]').id).toEqual('nz-auk');
+    expect(container.querySelector('[aria-current="true"]')?.id).toEqual('nz-auk');
   });
 });
