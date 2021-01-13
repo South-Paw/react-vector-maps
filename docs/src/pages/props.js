@@ -50,7 +50,7 @@ PropTable.propTypes = {
 const PropsPage = () => (
   <Layout>
     <h2>
-      <a href="//github.com/South-Paw/react-vector-maps/blob/master/src/VectorMap.js#L27">VectorMapProps</a>
+      <a href="//github.com/South-Paw/react-vector-maps/blob/master/src/VectorMap.tsx#L12">VectorMapProps</a>
     </h2>
     <PropTable
       items={[
@@ -116,7 +116,7 @@ const PropsPage = () => (
     <hr />
 
     <h3>
-      <a href="//github.com/South-Paw/react-vector-maps/blob/master/src/VectorMap.js#L35">VectorMapLayer</a>
+      <a href="//github.com/South-Paw/react-vector-maps/blob/master/src/VectorMap.tsx#L3">VectorMapLayer</a>
     </h3>
     <PropTable
       items={[
