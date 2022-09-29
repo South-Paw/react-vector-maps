@@ -3,8 +3,6 @@
 🗺️ A React component for interactive vector maps of the world and 100+ countries
 
 [![npm](https://img.shields.io/npm/v/@south-paw/react-vector-maps.svg)](https://www.npmjs.com/package/@south-paw/react-vector-maps)
-[![Dependencies](https://david-dm.org/South-Paw/react-vector-maps/status.svg)](https://david-dm.org/South-Paw/react-vector-maps)
-[![Dev Dependencies](https://david-dm.org/South-Paw/react-vector-maps/dev-status.svg)](https://david-dm.org/South-Paw/react-vector-maps?type=dev)
 
 ## Features
 
@@ -36,32 +34,32 @@ If you manage to find any, please report them [here](https://github.com/South-Pa
 Grab the repo and then install dependencies with `npm i`.
 
 ```bash
-# run tests
-npm run test
-
-# lint source
+# Run TypeScript check and ESLint
 npm run lint
 
-# build source
+# Run unit tests
+npm run test
+
+# Build package for publishing (/dist)
 npm run build
 
-# clean up build folders
+# Remove build artifacts (/dist and /coverage)
 npm run clean
 
-# start docs for development
-npm run docs:develop
-
-# clean up docs folders
-npm run docs:clean
-
-# yarn install for the docs
+# npm install for the docs
 npm run docs:install
 
-# build docs for deployment
+# Start docs for development
+npm run docs:start
+
+# Build docs for deployment
 npm run docs:build
 
-# serve docs from /public after build
+# Serve docs from /public after build
 npm run docs:serve
+
+# Clean up docs folders
+npm run docs:clean
 ```
 
 ## License

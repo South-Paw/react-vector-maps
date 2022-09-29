@@ -1,55 +1,50 @@
 {
   "name": "@south-paw/react-vector-maps-docs",
-  "version": "0.1.0",
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "1.0.0",
+  "description": "",
   "keywords": [],
   "homepage": "https://react-vector-maps.netlify.com",
   "bugs": "https://github.com/South-Paw/react-vector-maps/issues",
-  "license": "MIT",
   "author": {
     "name": "Alex Gabites",
     "email": "hello@southpaw.co.nz",
     "url": "http://southpaw.co.nz/"
   },
-  "files": [],
-  "main": "",
   "repository": {
     "type": "git",
     "url": "https://github.com/South-Paw/react-vector-maps.git"
   },
   "scripts": {
-    "clean": "rimraf .cache public",
+    "start": "gatsby develop",
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "^1.10.6",
-    "gatsby": "^2.15.20",
-    "gatsby-image": "^2.2.20",
-    "gatsby-plugin-manifest": "^2.2.18",
-    "gatsby-plugin-offline": "^3.0.8",
-    "gatsby-plugin-react-helmet": "^3.1.8",
-    "gatsby-plugin-sharp": "^2.2.25",
-    "gatsby-plugin-styled-components": "^3.1.9",
-    "gatsby-source-filesystem": "^2.1.26",
-    "gatsby-transformer-json": "^2.2.13",
-    "gatsby-transformer-sharp": "^2.2.16",
-    "polished": "^3.4.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-dropzone": "^10.1.10",
-    "react-helmet": "^5.2.1",
-    "react-live": "^2.2.0",
-    "react-markdown": "^4.2.2",
-    "react-uid": "^2.2.0",
-    "styled-components": "^4.4.0",
-    "styled-normalize": "^8.0.6",
-    "svgson": "^4.0.0"
+    "@tanstack/react-query": "^4.7.2",
+    "babel-plugin-styled-components": "^2.0.7",
+    "gatsby": "^4.24.0",
+    "gatsby-plugin-manifest": "^4.24.0",
+    "gatsby-plugin-styled-components": "^5.24.0",
+    "gatsby-source-filesystem": "^4.24.0",
+    "gatsby-transformer-json": "^4.24.0",
+    "polished": "^4.2.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-dropzone": "^14.2.2",
+    "react-live": "^2.4.1",
+    "react-markdown": "^8.0.3",
+    "react-uid": "^2.3.2",
+    "styled-components": "^5.3.6",
+    "styled-normalize": "^8.0.7",
+    "svgson": "^5.2.1"
   },
   "devDependencies": {
-    "rimraf": "^3.0.0"
+    "@types/node": "^17.0.45",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "typescript": "^4.8.3"
   },
   "private": true
 }

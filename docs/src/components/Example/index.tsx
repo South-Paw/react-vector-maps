@@ -1,9 +1,13 @@
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
+import { LiveEditor, LiveError, LivePreview, LiveProvider, LiveProviderProps } from 'react-live';
 import { Button, Editor, Error, Preview, StyledExample, Toolbar } from './styled';
 
-const Example = ({ isOpen, code, ...other }) => {
+export interface ExampleProps extends Omit<LiveProviderProps, 'ref'> {
+  isOpen?: boolean;
+  code: string;
+}
+
+export function Example({ isOpen = false, code, ...other }: ExampleProps) {
   const [showCode, setShowCode] = useState(isOpen);
 
   return (
@@ -33,15 +37,4 @@ const Example = ({ isOpen, code, ...other }) => {
       </LiveProvider>
     </StyledExample>
   );
-};
-
-Example.propTypes = {
-  code: PropTypes.string.isRequired,
-  isOpen: PropTypes.bool,
-};
-
-Example.defaultProps = {
-  isOpen: false,
-};
-
-export { Example };
+}
