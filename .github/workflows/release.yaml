@@ -58,7 +58,6 @@ jobs:
   publish:
     name: Publish package to npm
     runs-on: ubuntu-latest
-    if: github.event_name == 'release' && github.event.action == 'created'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
