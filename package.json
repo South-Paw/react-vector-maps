@@ -1,6 +1,6 @@
 {
   "name": "@south-paw/react-vector-maps",
-  "version": "3.2.0-alpha.2",
+  "version": "3.2.0",
   "description": "A React component for interactive vector maps of the world and 100+ countries",
   "keywords": [
     "react",
