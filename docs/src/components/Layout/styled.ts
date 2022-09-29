@@ -30,12 +30,16 @@ export const NavInner = styled.div`
     text-decoration: none;
 
     &.active {
+      color: ${(p) => p.theme.colors.white};
       opacity: 1;
+      text-decoration: none;
     }
 
     :hover,
     :focus {
+      color: ${(p) => p.theme.colors.white};
       opacity: 1;
+      text-decoration: none;
     }
   }
 
@@ -74,7 +78,7 @@ export const FooterInner = styled.div`
   }
 `;
 
-export const Item = styled.div`
+export const Item = styled.div<{ basis: number }>`
   margin: 0 8px;
   flex: 1 1 ${(p) => p.basis}%;
 

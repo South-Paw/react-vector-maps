@@ -1,15 +1,13 @@
+import { HeadProps } from 'gatsby';
 import { rgba } from 'polished';
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { VectorMap } from '../../../src/VectorMap';
+import { VectorMap } from '../../../src';
 import nzMap from '../../static/maps/new-zealand.json';
 import { Example } from '../components/Example';
 import { Layout } from '../components/Layout';
 import { Markdown } from '../components/Markdown';
-
-const seo = {
-  title: 'Examples',
-};
+import { Seo } from '../components/Seo';
 
 const examples = [
   {
@@ -215,27 +213,33 @@ render(() => {
   },
 ];
 
-const getId = (anchor) => `${anchor}`.toLowerCase().split(' ').join('-');
+function getId(anchor: string) {
+  return `${anchor}`.toLowerCase().split(' ').join('-');
+}
 
-const ExamplesPage = ({ ...other }) => (
-  <Layout seo={seo} {...other}>
-    <h2>Examples</h2>
-    <ul>
-      {examples.map(({ title }) => (
-        <li key={getId(title)}>
-          <a href={`#${getId(title)}`}>{title}</a>
-        </li>
+export function Head(props: HeadProps) {
+  return <Seo {...props} title="Examples" />;
+}
+
+export default function ExamplesPage() {
+  return (
+    <Layout>
+      <h2>Examples</h2>
+      <ul>
+        {examples.map(({ title }) => (
+          <li key={getId(title)}>
+            <a href={`#${getId(title)}`}>{title}</a>
+          </li>
+        ))}
+      </ul>
+      {examples.map(({ title, description, scope, code, exampleProps }) => (
+        <Fragment key={title}>
+          <hr />
+          <h3 id={getId(title)}>{title}</h3>
+          {description && <Markdown>{description}</Markdown>}
+          <Example code={code} scope={{ VectorMap, ...scope }} {...exampleProps} />
+        </Fragment>
       ))}
-    </ul>
-    {examples.map(({ title, description, scope, code, exampleProps }) => (
-      <Fragment key={title}>
-        <hr />
-        <h3 id={getId(title)}>{title}</h3>
-        {description && <Markdown source={description} />}
-        <Example code={code} scope={{ VectorMap, ...scope }} {...exampleProps} />
-      </Fragment>
-    ))}
-  </Layout>
-);
-
-export default ExamplesPage;
+    </Layout>
+  );
+}

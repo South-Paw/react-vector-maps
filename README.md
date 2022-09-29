@@ -50,7 +50,7 @@ npm run clean
 npm run docs:install
 
 # Start docs for development
-npm run docs:develop
+npm run docs:start
 
 # Build docs for deployment
 npm run docs:build

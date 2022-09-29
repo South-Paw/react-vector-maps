@@ -1,19 +1,12 @@
-/* eslint-env browser */
-
+import { HeadProps } from 'gatsby';
 import { rgba } from 'polished';
 import React, { useCallback, useState } from 'react';
-import { useDropzone } from 'react-dropzone';
+import { DropzoneOptions, useDropzone } from 'react-dropzone';
 import styled from 'styled-components';
 import { parse } from 'svgson';
-import { VectorMap } from '../../../src/VectorMap';
+import { VectorMap, VectorMapProps } from '../../../src';
 import { Layout } from '../components/Layout';
-
-const capitalize = (s) =>
-  s
-    .toLowerCase()
-    .split(' ')
-    .map((word) => word[0].toUpperCase() + word.slice(1))
-    .join(' ');
+import { Seo } from '../components/Seo';
 
 const Dropzone = styled.div`
   padding: 1rem;
@@ -97,34 +90,45 @@ const Button = styled.button`
   }
 `;
 
-const seo = {
-  title: 'Converter',
-};
+const capitalize = (string: string) =>
+  string
+    .toLowerCase()
+    .split(' ')
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(' ');
 
-// eslint-disable-next-line react/prop-types
-const FileDropzone = ({ onFileDropped, fileName }) => {
-  const onDrop = useCallback(onFileDropped, []);
+interface FileDropzoneProps {
+  onDrop: NonNullable<DropzoneOptions['onDrop']>;
+  fileName?: string;
+}
+
+function FileDropzone({
+  onDrop,
+  fileName = 'Click to choose a file (.svg) or drag and drop one here',
+}: FileDropzoneProps) {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
     <Dropzone {...getRootProps()}>
       <input {...getInputProps()} />
-      {isDragActive ? (
-        <span>Drop the files here</span>
-      ) : (
-        <span>{fileName || 'Click to choose a file (.svg) or drag and drop one here'}</span>
-      )}
+      {isDragActive ? <span>Drop the files here</span> : <span>{fileName}</span>}
     </Dropzone>
   );
-};
+}
 
-const ConverterProps = () => {
-  const [error, setError] = useState(undefined);
+type Map = Pick<VectorMapProps, 'id' | 'name' | 'viewBox' | 'layers'>;
+
+export function Head(props: HeadProps) {
+  return <Seo {...props} title="SVG Converter" />;
+}
+
+export default function ConverterPage() {
+  const [error, setError] = useState<string>();
   const [isLoading, setIsLoading] = useState(false);
-  const [fileName, setFileName] = useState(undefined);
-  const [output, setOutput] = useState(undefined);
+  const [fileName, setFileName] = useState<string>();
+  const [output, setOutput] = useState<Map>();
 
-  const onFileDropped = (acceptedFiles) => {
+  const onDrop = useCallback<NonNullable<DropzoneOptions['onDrop']>>((acceptedFiles: File[]) => {
     setError(undefined);
     setIsLoading(true);
     setFileName(undefined);
@@ -141,7 +145,7 @@ const ConverterProps = () => {
 
     // Needs to be an 'image/svg' type.
     if (!file.type.includes('image/svg')) {
-      setError(`Invalid file type, must be 'image/svg' but recieved '${file.type}'`);
+      setError(`Invalid file type, must be 'image/svg' but received '${file.type}'`);
       setIsLoading(false);
       return;
     }
@@ -173,23 +177,24 @@ const ConverterProps = () => {
         setIsLoading(false);
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.error(err);
         setError(err.message);
         setIsLoading(false);
       });
-  };
+  }, []);
 
-  const downloadFile = () => {
+  const downloadFile = useCallback(() => {
     const blob = new Blob([JSON.stringify(output)], { type: 'application/json' });
     const el = document.createElement('a');
     el.href = URL.createObjectURL(blob);
-    el.download = `${fileName.split('.')[0]}.json`;
+    el.download = `${fileName || 'react-vector-maps'.split('.')[0]}.json`;
     document.body.appendChild(el);
     el.click();
-  };
+  }, [fileName, output]);
 
   return (
-    <Layout seo={seo}>
+    <Layout>
       <h2>Converter</h2>
       <p>Before you convert your SVG, please check the following things</p>
       <ul>
@@ -205,7 +210,7 @@ const ConverterProps = () => {
         </li>
         <li>
           <code>id</code> and <code>d</code> attributes are required on all path elements and the <code>id</code> must
-          be uniquie for each path.
+          be unique for each path.
         </li>
         <li>
           A <code>title</code> attribute on a path element will be used as the layers <code>name</code> field. If no
@@ -223,7 +228,7 @@ const ConverterProps = () => {
       </pre>
       <hr />
       <h3>Add your SVG file</h3>
-      <FileDropzone onFileDropped={onFileDropped} fileName={fileName} />
+      <FileDropzone onDrop={onDrop} fileName={fileName} />
       {error && <Error>{error}</Error>}
       {isLoading && !output && <Loading>Loading...</Loading>}
       {output && (
@@ -233,7 +238,7 @@ const ConverterProps = () => {
             <VectorMap {...output} />
           </Preview>
           <h3 style={{ marginTop: 24 }}>JSON Output</h3>
-          <Output value={JSON.stringify(output)} readonly spellCheck={false} />
+          <Output value={JSON.stringify(output)} readOnly spellCheck={false} />
           <Actions>
             <Button style={{ backgroundColor: '#a82b2b' }} onClick={downloadFile}>
               Download JSON
@@ -243,6 +248,4 @@ const ConverterProps = () => {
       )}
     </Layout>
   );
-};
-
-export default ConverterProps;
+}

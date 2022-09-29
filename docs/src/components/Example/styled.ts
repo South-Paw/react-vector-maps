@@ -41,7 +41,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Editor = styled.div`
+export const Editor = styled.div<{ isOpen: boolean }>`
   background-color: ${(p) => p.theme.colors.dark};
   height: auto;
   max-height: ${(p) => (p.isOpen ? '400px' : '0')};

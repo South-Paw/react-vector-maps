@@ -37,11 +37,11 @@
     "lint:type-check": "tsc --noEmit",
     "lint": "npm run lint:type-check && npm run lint:eslint",
     "test": "jest --passWithNoTests",
-    "docs:clean": "cd docs && npm run clean",
     "docs:install": "cd docs && npm i",
+    "docs:start": "cd docs && npm run start",
     "docs:build": "cd docs && npm run build",
-    "docs:develop": "cd docs && npm run develop",
-    "docs:serve": "cd docs && npm run serve"
+    "docs:serve": "cd docs && npm run serve",
+    "docs:clean": "cd docs && npm run clean"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
