@@ -1,39 +1,23 @@
 {
   "extends": [
+    "airbnb",
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier/react",
-    "prettier/@typescript-eslint",
     "plugin:jest/recommended"
   ],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
   "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "jsx-a11y/accessible-emoji": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off"
   },
   "overrides": [
     {
-      "files": ["**/*.tsx"],
-      "rules": {
-        "react/prop-types": "off"
-      }
-    },
-    {
-      "files": ["**/*.stories.tsx"],
-      "rules": {
-        "import/no-extraneous-dependencies": "off"
-      }
+      "files": ["tsup.config.ts"],
+      "rules": { "import/no-extraneous-dependencies": "off" }
     }
-  ],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  }
+  ]
 }
