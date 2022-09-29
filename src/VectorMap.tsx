@@ -9,7 +9,8 @@ export interface VectorMapLayer {
   d: string;
 }
 
-export interface VectorMapProps {
+export interface VectorMapProps extends React.SVGProps<SVGSVGElement> {
+  children?: React.ReactNode;
   /** Unique ID of the SVG element. */
   id: string;
   /** Name of the map. */
@@ -21,14 +22,14 @@ export interface VectorMapProps {
   /** Tab index for each layer. Set to '-1' to disable layer focusing. */
   tabIndex?: number;
   /** Props to spread onto each layer. */
-  layerProps?: any;
+  layerProps?: React.SVGProps<SVGPathElement>;
   /** Layer IDs to 'select' with the 'aria-checked' attribute. */
   checkedLayers?: string[];
   /** Layer IDs to 'select' with the 'aria-current' attribute. */
   currentLayers?: string[];
 }
 
-const VectorMap: React.FC<VectorMapProps> = ({
+export function VectorMap({
   id,
   name,
   layers,
@@ -38,10 +39,12 @@ const VectorMap: React.FC<VectorMapProps> = ({
   currentLayers,
   children,
   ...other
-}) => {
+}: VectorMapProps) {
   if (!layers || layers.length === 0) {
     // eslint-disable-next-line no-console
-    console.error(`[react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`);
+    console.error(
+      `[@south-paw/react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`,
+    );
     return null;
   }
 
@@ -61,6 +64,4 @@ const VectorMap: React.FC<VectorMapProps> = ({
       ))}
     </svg>
   );
-};
-
-export { VectorMap };
+}

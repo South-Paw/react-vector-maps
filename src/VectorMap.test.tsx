@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom/extend-expect';
 import { cleanup, render } from '@testing-library/react';
-import React from 'react';
 import { VectorMap } from './VectorMap';
 
 const args = {
@@ -38,10 +37,10 @@ describe('VectorMap', () => {
   it('should throw and error without a layers prop', () => {
     const spy = jest.spyOn(console, 'error');
 
-    render(<VectorMap {...args} layers={undefined as any} />);
+    render(<VectorMap {...args} layers={undefined as never} />);
 
     expect(spy).toHaveBeenCalledWith(
-      `[react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`,
+      `[@south-paw/react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`,
     );
   });
 
@@ -51,7 +50,7 @@ describe('VectorMap', () => {
     render(<VectorMap {...args} layers={[]} />);
 
     expect(spy).toHaveBeenCalledWith(
-      `[react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`,
+      `[@south-paw/react-vector-maps] No 'layers' prop provided. Did you spread a map object onto the component?`,
     );
   });
 
