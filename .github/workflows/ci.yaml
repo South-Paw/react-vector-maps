@@ -29,7 +29,6 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -51,7 +50,6 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -68,17 +66,16 @@ jobs:
       - name: Build Package
         run: npm run build
 
-  deployDraft:
+  deploy-draft:
     name: Deploy draft to Netlify
     runs-on: ubuntu-latest
     steps:
       - name: Start deployment
-        uses: bobheadxi/deployments@v0.4.3
+        uses: bobheadxi/deployments@v1
         id: deployment
         with:
-          step: start
-          token: ${{ secrets.GITHUB_TOKEN }}
           env: draft
+          step: start
 
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -99,20 +96,20 @@ jobs:
         run: npm run docs:build
 
       - name: Deploy draft to Netlify
-        uses: netlify/actions/cli@master
+        uses: South-Paw/action-netlify-cli@v1
         id: netlify
         with:
-          args: deploy --dir './docs/public' --message 'draft [${{ github.sha }}]'
+          args: deploy --json --dir './docs/public' --message 'draft [${{ github.sha }}]'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: Finish deployment
-        uses: bobheadxi/deployments@v0.4.3
+        uses: bobheadxi/deployments@v1
         if: always()
         with:
+          env: ${{ steps.deployment.outputs.env }}
           step: finish
-          token: ${{ secrets.GITHUB_TOKEN }}
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-          env_url: ${{ steps.netlify.outputs.NETLIFY_URL }}
+          env_url: ${{ steps.netlify.outputs.NETLIFY_DRAFT_URL }}
