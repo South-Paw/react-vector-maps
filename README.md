@@ -7,8 +7,8 @@
 ## Features
 
 - Simple and easy to implement React component for rendering interactive vector maps
-- [100+ vector maps included](https://react-vector-maps.netlify.com/maps) out of the box, free from [MapSVG](https://mapsvg.com/maps)
-- Convert your own vector map for the component to use with the [online converter](https://react-vector-maps.netlify.com/converter)
+- [100+ vector maps included](https://react-vector-maps.netlify.app/maps) out of the box, free from [MapSVG](https://mapsvg.com/maps)
+- Convert your own vector map for the component to use with the [online converter](https://react-vector-maps.netlify.app/converter)
 - Quick and straight forward to style your map however you want to
 
 ## Basic Usage
@@ -23,7 +23,7 @@ import world from './world.json';
 export const Map = () => <VectorMap {...world} />;
 ```
 
-See the [documentation](https://react-vector-maps.netlify.com/) for more examples and advanced usage of the component.
+See the [documentation](https://react-vector-maps.netlify.app/) for more examples and advanced usage of the component.
 
 ## Issues and Bugs
 
